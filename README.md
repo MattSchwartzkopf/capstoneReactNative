@@ -1,7 +1,10 @@
 # capstoneReactNative
  
-# How to run on MacOS in Terminal:
+# Setup & Run on MacOS:
 
+## Note: This requires two Terminal Windows to run
+
+### Terminal Window #1:
   1. `brew install yarn`
   2. `brew install node`
   3. `brew install watchman`
@@ -9,11 +12,15 @@
   5. `brew cask install adoptopenjdk8`
   6. `npm install -g expo-cli`
   7. `react-native init [filename]`
-  8.  cd to [filename]
+  8.  `cd [filename]`
   9. `npm start`
-  10. Open new Terminal Window and cd to [filename]
-  11. Run `react-native run-ios --simulator="iPhone 8 Plus"`
   
-  More help: https://facebook.github.io/react-native/docs/getting-started.html
+### Terminal Window #2:
+  1. Open new Terminal Window and `cd [filename]`
+  2. Run `react-native run-ios --simulator="iPhone 8 Plus"`
   
-  More info on potential features: https://facebook.github.io/react-native/docs/performance
+  # More help: 
+  https://facebook.github.io/react-native/docs/getting-started.html
+  
+  # More info on potential features: 
+  https://facebook.github.io/react-native/docs/performance
