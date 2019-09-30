@@ -7,8 +7,8 @@
   3. `brew install watchman`
   4. `brew tap AdoptOpenJDK/openjdk`
   5. `brew cask install adoptopenjdk8`
-  6. `npm install -g expo-cli'
-  7. `react-native init [filename]
+  6. `npm install -g expo-cli`
+  7. `react-native init [filename]`
   8.  cd to [filename]
   9. `npm start`
   10. Open new Terminal Window and cd to [filename]
