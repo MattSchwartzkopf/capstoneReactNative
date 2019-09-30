@@ -16,3 +16,4 @@
   
   More help: https://facebook.github.io/react-native/docs/getting-started.html
   
+  More info on potential features: https://facebook.github.io/react-native/docs/performance
