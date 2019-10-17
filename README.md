@@ -25,5 +25,5 @@
   # More info on potential features: 
   https://facebook.github.io/react-native/docs/performance
 
-### Toubleshooting
- # Xcode > File > Preferences > Location > Set dependencies
+# Toubleshooting
+ ### Xcode > File > Preferences > Location > Set dependencies
