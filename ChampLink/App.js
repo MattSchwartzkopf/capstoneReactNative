@@ -52,6 +52,7 @@ class App extends React.Component<{}> {
   render() {
     return (
       <SafeAreaView>
+        
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
@@ -92,6 +93,7 @@ class App extends React.Component<{}> {
           </View>
         </ScrollView>
       </SafeAreaView>
+      
     )
           }
         }
