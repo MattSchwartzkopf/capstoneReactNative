@@ -1,7 +1,3 @@
-
-
-
-
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -18,84 +14,53 @@ import {
   View,
   Text,
   StatusBar,
-  Button,
 } from 'react-native';
-
 
 import {
   Header,
   Features,
   Colors,
-  EventPage,
-  LearnMoreLinks,
+  WhatIsChampLink,
 } from 'react-native/Libraries/NewAppScreen';
 
 
-class App extends React.Component<{}> {
-  static navigationOptions = {
-    title: 'AppMenu',
-  };
-  FunctionToOpenSecondActivity = () => {
-     this.props.navigation.navigate('AppMenu');
-  }
-
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <Button
-        title="Go to Main Menu"
-        onPress={() => navigate('Profile', {name: 'Jane'})}
-      />
-    );
-  }
-
-  render() {
-    return (
+const App: () => React$Node = () => {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-
-          
           <Header />
-          
-          <EventPage />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
           <View style={styles.body}>
-
             <View style={styles.sectionContainer}>
-              <Button onPress = { this.FunctionToOpenSecondActivity } title = 'Click Here To Open Event Page'/>
               <Text style={styles.sectionTitle}>ChampLink</Text>
               <Text style={styles.sectionDescription}>
                 <Text style={styles.highlight}>Version: </Text> 0.1 {'\n'}
                 <Text style={{fontWeight: "bold"}}>Date:</Text> October 15, 2019{'\n'}
                 <Text style={{fontWeight: "bold"}}>Authors:</Text> Brian Nguyen {"&"} Matthew Schwartzkopf
               </Text>
-
             </View>
-
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>What is ChampLink ?</Text>
-            </View>
-
-            <View style={styles.sectionContainer}>
               <Text style={styles.sectionDescription}>
-
+                <WhatIsChampLink/>
               </Text>
             </View>
-            <LearnMoreLinks/>
-            
+            <Features />
           </View>
         </ScrollView>
       </SafeAreaView>
-    )
-          }
-        }
-        
+    </>
+  );
+};
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,
