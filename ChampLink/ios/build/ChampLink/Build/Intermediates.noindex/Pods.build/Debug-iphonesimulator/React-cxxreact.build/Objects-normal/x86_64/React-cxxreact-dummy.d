@@ -1,0 +1,3 @@
+dependencies: \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-cxxreact/React-cxxreact-dummy.m \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-cxxreact/React-cxxreact-prefix.pch
