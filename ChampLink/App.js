@@ -33,7 +33,7 @@ import {
   LoginPage,
   HomeScreen,
   MyChat,
-} from 'react-native/Libraries/NewAppScreen';
+} from 'ChampLink/node_modules/react-native/Libraries/NewAppScreen/';
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
 export default class App extends React.Component {
