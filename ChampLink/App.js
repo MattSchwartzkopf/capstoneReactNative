@@ -32,6 +32,7 @@ import {
   LearnMoreLinks,
   LoginPage,
   HomeScreen,
+  MyChat,
 } from 'react-native/Libraries/NewAppScreen';
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
@@ -52,6 +53,9 @@ const AppNavigator = createStackNavigator({
   },
   LoginPage: {
     screen: LoginPage
+  },
+  MyChat: {
+    screen: MyChat
   }
 });
 
@@ -67,3 +71,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+// Links to help:
+// https://stackoverflow.com/questions/44798426/how-to-change-background-color-of-react-native-button
