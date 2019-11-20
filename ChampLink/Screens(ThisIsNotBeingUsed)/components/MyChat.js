@@ -22,6 +22,7 @@ import {
   LearnMoreLinks,
   LoginPage,
   HomeScreen,
+  PollPage
 } from 'react-native/Libraries/NewAppScreen';
 
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';

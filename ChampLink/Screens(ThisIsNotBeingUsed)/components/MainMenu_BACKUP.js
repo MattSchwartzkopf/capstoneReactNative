@@ -22,6 +22,7 @@ import {
   Features,
   Colors,
   EventPage,
+  PollPage
 } from 'react-native/Libraries/NewAppScreen';
 
 

@@ -19,5 +19,6 @@ import ReloadInstructions from './components/ReloadInstructions';
 import LoginPage from './components/LoginPage';
 import HomeScreen from './components/HomeScreen';
 import MyChat from './components/MyChat';
+import PollPage from './components/PollPage';
 
-export {Header, MyChat, HomeScreen, LoginPage, EventPage, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
+export {Header, MyChat, HomeScreen, LoginPage, EventPage, PollPage, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};

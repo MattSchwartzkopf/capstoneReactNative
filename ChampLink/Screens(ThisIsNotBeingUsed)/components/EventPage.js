@@ -33,7 +33,7 @@ class EventPage extends React.Component<{}> {
 
         {/* Poll */}
         <Text id='pollInfo' style={styles.containerPollInfo}>
-          Poll #341: Why is the Earth flat?
+          Event #341: Why is the Earth fawdawdlat?
         </Text>
 
         <SafeAreaView>

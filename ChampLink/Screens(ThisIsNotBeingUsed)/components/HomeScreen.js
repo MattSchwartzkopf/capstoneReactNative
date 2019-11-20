@@ -34,7 +34,7 @@ export default class HomeScreen extends React.Component {
 
         {/* ID Number */}
         <Text id='idNumber' style={styles.containerIdNumber}>
-          ID: ####1233 - 14
+          ID: ####1233 - 13
         </Text>
 
         {/* Poll */}
@@ -56,6 +56,14 @@ export default class HomeScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('EventPage')}
           underlayColor='#fff'>
           <Text style={styles.eventText}>Event Page</Text>
+        </TouchableOpacity>
+
+        {/* This is the button to navigate to the Events Screen */}
+        <TouchableOpacity
+          style={styles.eventScreenButton}
+          onPress={() => this.props.navigation.navigate('PollPage')}
+          underlayColor='#fff'>
+          <Text style={styles.eventText}>Poll Page</Text>
         </TouchableOpacity>
 
         {/* This is the button to navigate to the Chat Screen */}
