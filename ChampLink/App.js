@@ -34,6 +34,8 @@ import {
   HomeScreen,
   MyChat,
   PollPage,
+  PollPageDetail,
+  EventPageDetail,
 } from 'ChampLink/node_modules/react-native/Libraries/NewAppScreen/';
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
@@ -51,6 +53,12 @@ const AppNavigator = createStackNavigator({
   },
   EventPage: {
     screen: EventPage
+  },
+  EventPageDetail: {
+    screen: EventPageDetail
+  },
+  PollPageDetail: {
+    screen: PollPageDetail
   },
   PollPage: {
     screen: PollPage
