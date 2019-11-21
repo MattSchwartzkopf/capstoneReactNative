@@ -40,40 +40,6 @@
 			<key>uniqueIdentifier</key>
 			<string>0D7D9597-8FD8-4508-B8B8-957DF478CC69</string>
 		</dict>
-		<key>6B97748A-4B71-4FA6-A858-F9339041BEFF</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>6B97748A-4B71-4FA6-A858-F9339041BEFF.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>E</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>ChampLink project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>ChampLink</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>595380239.24700797</real>
-			<key>timeStoppedRecording</key>
-			<real>595380240.06011903</real>
-			<key>title</key>
-			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>6B97748A-4B71-4FA6-A858-F9339041BEFF</string>
-		</dict>
 	</dict>
 </dict>
 </plist>
