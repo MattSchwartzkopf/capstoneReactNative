@@ -27,3 +27,4 @@
 
 # Toubleshooting
  ### Xcode > File > Preferences > Location > Set dependencies
+ ### If fails to build project, delete 'Build' folder in ChampLink/ios/Build and re-run

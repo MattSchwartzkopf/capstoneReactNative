@@ -25,14 +25,19 @@ import {
 } from 'react-native';
 
 import {
+  Header,
+  Features,
+  Colors,
   EventPage,
+  LearnMoreLinks,
   LoginPage,
   HomeScreen,
   MyChat,
-  PollPage,
-  PollPageDetail,
   EventPageDetail,
-} from 'ChampLink/node_modules/react-native/Libraries/NewAppScreen/';
+  PollPageDetail,
+  PollPage,
+  SignUp,
+} from './node_modules/react-native/Libraries/NewAppScreen'
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
 export default class App extends React.Component {
@@ -64,6 +69,9 @@ const AppNavigator = createStackNavigator({
   },
   MyChat: {
     screen: MyChat
+  },
+  SignUp: {
+    screen: SignUp
   }
 });
 
