@@ -25,11 +25,7 @@ import {
 } from 'react-native';
 
 import {
-  Header,
-  Features,
-  Colors,
   EventPage,
-  LearnMoreLinks,
   LoginPage,
   HomeScreen,
   MyChat,
