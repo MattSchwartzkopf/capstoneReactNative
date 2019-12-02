@@ -6,11 +6,11 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		cgqtqVo0q/jAE/3GPQVQLOj7t5k=
+		Lgd6ubEjtMNDpdPRYaj2AGQhX+E=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		p60KdLN5RIdTWrQSVavFYS1M/tc=
+		4I3qq5ovCTh1K6dfSoX4+weHKxI=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
 		<data>
@@ -79,7 +79,7 @@
 		</data>
 		<key>PlugIns/ChampLinkTests.xctest/ChampLinkTests</key>
 		<data>
-		U3WkMaasUN7QsojN82MrBTdRE7o=
+		5tpF64RIathMpO9z0vKnetrTL7Q=
 		</data>
 		<key>PlugIns/ChampLinkTests.xctest/Info.plist</key>
 		<data>
@@ -96,22 +96,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cgqtqVo0q/jAE/3GPQVQLOj7t5k=
+			Lgd6ubEjtMNDpdPRYaj2AGQhX+E=
 			</data>
 			<key>hash2</key>
 			<data>
-			VrO9zAqF6FcrNGVLW/oKl45kXmfR6+a5aFHdVN2O5WY=
+			UbJsoH9hZqPR9KvSDnJ7Fr6Uwa16q3dLZUs+JBTnHmI=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			p60KdLN5RIdTWrQSVavFYS1M/tc=
+			4I3qq5ovCTh1K6dfSoX4+weHKxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			9SwQodUVG8v4P18Hl21XcVcr0mhT81SnIBdlfQCU0/U=
+			b7vamEcT5+IhFEtZQVs9hDV7FniRiQcw02iomhn50LM=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
@@ -263,11 +263,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U3WkMaasUN7QsojN82MrBTdRE7o=
+			5tpF64RIathMpO9z0vKnetrTL7Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			Re1EPlkkl5r7h3OkaEJhmS/6742cwfR/K0JXS3SztIk=
+			TOo/897wePCP925PgN4HNKP3TK8gwS3vXnWxhgwhSWo=
 			</data>
 		</dict>
 		<key>PlugIns/ChampLinkTests.xctest/Info.plist</key>
