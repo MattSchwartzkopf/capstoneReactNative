@@ -5,6 +5,41 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>C7BD8B2B-2908-4561-B2DA-F35F0C62E5D1</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>C7BD8B2B-2908-4561-B2DA-F35F0C62E5D1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ChampLink project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ChampLink</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>597012077.12705195</real>
+			<key>timeStoppedRecording</key>
+			<real>597012078.18069196</real>
+			<key>title</key>
+			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>C7BD8B2B-2908-4561-B2DA-F35F0C62E5D1</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

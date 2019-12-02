@@ -36,8 +36,11 @@ import {
   EventPageDetail,
   PollPageDetail,
   PollPage,
-  SignUp,
+  List,
+  AddItem,
 } from './node_modules/react-native/Libraries/NewAppScreen'
+
+
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
 export default class App extends React.Component {
@@ -70,8 +73,8 @@ const AppNavigator = createStackNavigator({
   MyChat: {
     screen: MyChat
   },
-  SignUp: {
-    screen: SignUp
+  AddItem: {
+    screen: AddItem
   }
 });
 
