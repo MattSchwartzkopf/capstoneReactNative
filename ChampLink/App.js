@@ -10,37 +10,20 @@
  * @flow
  */
 
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
-import React from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-} from 'react-native';
-
-import {
-  Header,
-  Features,
-  Colors,
   EventPage,
-  LearnMoreLinks,
   LoginPage,
   HomeScreen,
   MyChat,
   EventPageDetail,
   PollPageDetail,
   PollPage,
-  List,
   AddItem,
-} from './node_modules/react-native/Libraries/NewAppScreen'
-
-
+} from './Screens/'
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
 export default class App extends React.Component {
