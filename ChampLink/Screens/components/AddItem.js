@@ -14,11 +14,7 @@ import {
 
 import { db } from '../config';
 
-let addItem = item => {
-  db.ref('/Events').push({
-    name: item
-  });
-};
+
 
 export default class AddItem extends Component {
   state = {
@@ -26,21 +22,52 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-  handleChange = e => {
+addItem(name, desc, date) {
+  db.ref('/Events').push({
+    name: name,
+    desc: desc,
+    date: date
+  });
+};
+
+// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+  handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
     });
   };
+
+  handleChangeDesc = e => {
+    this.setState({
+      desc: e.nativeEvent.text
+    });
+  };
+
+  handleChangeDate = e => {
+    this.setState({
+      date: e.nativeEvent.text
+    });
+  };
+// ^^^^ Cleanup later
+
   handleSubmit = () => {
-    addItem(this.state.name);
-    Alert.alert('Item saved successfully');
+    this.addItem(this.state.name, this.state.desc, this.state.date);
+    Alert.alert('Event saved successfully');
   };
 
   render() {
     return (
       <View style={styles.main}>
-        <Text style={styles.title}>Add Event Name</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChange} />
+
+        <Text style={styles.title}>Event Name</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
+
+        <Text style={styles.title}>Event Description</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleChangeDesc} />
+
+        <Text style={styles.title}>Date of Event</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
+
         <TouchableHighlight
           style={styles.button}
           underlayColor="white"
@@ -59,10 +86,12 @@ const styles = StyleSheet.create({
     padding: 30,
     flexDirection: 'column',
     justifyContent: 'center',
+    paddingBottom: 400,
     backgroundColor: '#005393'
   },
   title: {
-    marginBottom: 20,
+    paddingTop: 20,
+    marginBottom: 10,
     fontSize: 25,
     textAlign: 'center'
   },

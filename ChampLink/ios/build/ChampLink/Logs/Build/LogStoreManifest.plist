@@ -6,6 +6,40 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ChampLink project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ChampLink</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>597363700.75444496</real>
+			<key>timeStoppedRecording</key>
+			<real>597363701.77617705</real>
+			<key>title</key>
+			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96</string>
+		</dict>
 		<key>C7BD8B2B-2908-4561-B2DA-F35F0C62E5D1</key>
 		<dict>
 			<key>className</key>

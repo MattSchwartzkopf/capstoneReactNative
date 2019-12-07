@@ -20,7 +20,9 @@ export default class ItemComponent extends Component {
             // Each event is spaced individually here
             <TouchableOpacity>
               <View key={index} style={styles.eventSpacing}>
-                <Text style={styles.eventBox}>{item.name}</Text>
+                <Text style={styles.eventBoxName}>{item.name}</Text>
+                <Text style={styles.eventBoxDesc}>{item.desc}</Text>
+                <Text style={styles.eventBoxDate}>When: {item.date}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -37,12 +39,28 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: '#005393'
   },
-  eventBox: {
-    fontSize: 24,
+  eventBoxName: {
+    fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 80,
-    paddingBottom: 80,
+    paddingTop: 40,
+    paddingBottom: 20,
+    backgroundColor: '#02634b',
+    textDecorationLine: 'underline'
+  },
+  eventBoxDesc: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: '#02634b',
+  },
+  eventBoxDate: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'left',
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: '#02634b',
   },
   eventSpacing: {
