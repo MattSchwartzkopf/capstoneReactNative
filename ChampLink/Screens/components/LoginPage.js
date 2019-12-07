@@ -88,14 +88,13 @@ class LoginPage extends React.Component {
               onChangeText={password => this.handleChangePassword(password)}
             />
 
-          <Button title="Sign In (Coming soon!)" onPress={this.signInUser} />
+          <Button title="Sign In" onPress={this.signInUser} />
+          <Button title="Sign Out" onPress={this.signOutUser} />
           <Button title="Change Password" onPress={this.submitEmail} disabled={false} />
           <Button title='Create an Account!' onPress={this.createUser} />
 
         </View> 
     </KeyboardAvoidingView>
-
-       
     );
   }
 
@@ -109,11 +108,13 @@ class LoginPage extends React.Component {
         console.log("  Name: " + profile.displayName);
         console.log("  Email: " + profile.email);
         console.log("  Photo URL: " + profile.photoURL);
-
-
       });
     }
 }
+
+  setDisplayName = () => {
+    firebase.auth().currentUser.displayName = this.state.displayName;
+  }
 
   authenticateUser() {
     Alert.alert("IN!")
@@ -193,9 +194,9 @@ class LoginPage extends React.Component {
 
   signOutUser() {
     firebase.auth().signOut().then(function() {
-      // Sign-out successful.
+      Alert.alert("Signed out from", firebase.auth().currentUser.email)
     }).catch(function(error) {
-      // An error happened.
+      Alert.alert(error.message)
     });
   }
 
@@ -216,12 +217,6 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     overflow: 'visible',
     resizeMode: 'cover',
-    /*
-     * These negative margins allow the image to be offset similarly across screen sizes and component sizes.
-     *
-     * The source logo.png image is 512x512px, so as such, these margins attempt to be relative to the
-     * source image's size.
-     */
     alignSelf: 'center'
   },
   text: {

@@ -18,44 +18,37 @@ import firestore from '@firebase/firestore';
 var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
 
 
-// ATTEMPTING TO LOAD
-// ALL DATA FROM
-// FIREBASE DATABASE
-// HERE vvvvvvvvvvv
-function Todos() {
-  const [ todo, setTodo ] = useState('');
-  const ref = firestore().collection('todos');
-  
-  async function addTodo() {
-    await ref.add({
-      title: todo,
-      complete: false,
-    });
-    setTodo('');
-  }
-}
+
+var provider = new firebase.auth.GoogleAuthProvider();
 
 export default class HomeScreen extends React.Component {
 
 
   render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <body>
+      <script src="/__/firebase/7.5.2/firebase-app.js"></script>
+      <script src="/__/firebase/7.5.2/firebase-analytics.js"></script>
+      <script src="/__/firebase/7.5.2/firebase-auth.js"></script>
+      <script src="/__/firebase/7.5.2/firebase-firestore.js"></script>
+      <script src="/__/firebase/init.js"></script>
+    </body>
 
-        <Image  style={{
-          width: 400,
-          height: 200,
-          }}
+    return (
+      <View style={{ flex: 1}}>
+        
+        <Image  style={styles.homeScreenImage}
           source={require('./champlainHomePage.png')}/>
 
         {/* Title/Username - Can properly add names once Login is added*/}
         <Text id='username' style={styles.containerUsername}>
-          Name: {accountNames[0]}
+          <Text style={styles.userDisplayName}>Signed In As: </Text> 
+            {firebase.auth().currentUser.email}
         </Text>
 
         {/* ID Number */}
-        <Text id='idNumber' style={styles.containerIdNumber}>
-          ID: ####1233 - 13
+        <Text id='username' style={styles.containerIdNumber}>
+          <Text style={styles.userDisplayName}>ID: </Text> 
+            {firebase.auth().currentUser.uid}
         </Text>
 
         {/* This is the button to navigate to the Login Screen */}
@@ -152,10 +145,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginTop: 10,
-    marginLeft: -10
+    marginLeft: -10,
+    textAlign: 'center',
   },
   containerIdNumber: {
-    textAlign: 'right',
+    textAlign: 'center',
     fontSize: 18,
     paddingBottom: 40,
     paddingTop: 0,
@@ -193,4 +187,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: Colors.black,
   },
+  userDisplayName: {
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingTop: 30,
+    textDecorationLine: 'underline',
+  },
+  homeScreenImage: {
+    width: 400,
+    height: 200,
+    alignSelf: 'center',
+  },
+  userEmailName: {
+    paddingBottom: 20,
+  }
 });
