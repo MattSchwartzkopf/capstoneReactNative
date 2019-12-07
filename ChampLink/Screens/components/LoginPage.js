@@ -21,12 +21,25 @@ import {Text,
         StyleSheet, 
         View, } from 'react-native';
 
+  <body>
+  <script src="/__/firebase/7.5.2/firebase-app.js"></script>
+  <script src="/__/firebase/7.5.2/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.5.2/firebase-auth.js"></script>
+  <script src="/__/firebase/7.5.2/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+</body>
+
+var provider = new firebase.auth.GoogleAuthProvider();
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       emailAddress: ""
     };
+
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  firebase.auth().languageCode = 'en';
   }
 
   static navigationOptions = {
@@ -42,13 +55,12 @@ class LoginPage extends React.Component {
         behavior="padding">
 
         <View style={styles.scrollViewWrapper}>
-          <Text style={styles.forgotPasswordHeading}>
-            Forgot your password?
-          </Text>
 
           <Text style={styles.ForgotPasswordSubHeading}>
           Enter your email to find account.
           </Text>
+
+          <Text>{this.getUserInfo}</Text>
 
           <TextInput
               style={styles.changeEmail}
@@ -61,7 +73,24 @@ class LoginPage extends React.Component {
               onChangeText={email => this.handleEmailChange(email)}
             />
 
-          <Button title="Submit" handelPress={this.submitEmail} disabled={false} />
+          <Text style={styles.ForgotPasswordSubHeading}>
+          Enter your password to create an account
+          </Text>
+
+          <TextInput
+              style={styles.changePassword}
+              customStyle={{ marginTop: 100 }}
+              textDecorationColor='white'
+              placeholder="PASSWORD"
+              labelColor='white'
+              borderBottomColor='white'
+              inputType="password"
+              onChangeText={password => this.handleChangePassword(password)}
+            />
+
+          <Button title="Change Password" onPress={this.submitEmail} disabled={false} />
+          <Button title="Sign In" onPress={this.authenticateUser} />
+          <Button title='Create an Account!' onPress={this.createUser} />
 
         </View> 
     </KeyboardAvoidingView>
@@ -70,14 +99,86 @@ class LoginPage extends React.Component {
     );
   }
 
+  getUserInfo() {
+    var user = firebase.auth().currentUser;
+
+    if (user != null) {
+      user.providerData.forEach(function (profile) {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        console.log("  Email: " + profile.email);
+        console.log("  Photo URL: " + profile.photoURL);
+
+
+      });
+    }
+}
+
+  authenticateUser() {
+    Alert.alert("IN!")
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      Alert.alert("In Again!")
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+      <style>
+      <Text>test</Text>
+    </style>
+      retrieveOAuthToken()
+      signInUser()
+    }).catch(function(error) {
+      Alert.alert("Nope...")
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+    Alert.alert("oh")
+  }
+
+  // To redirect user
+  signInUser() {
+    firebase.auth().signInWithRedirect(provider);
+  }
+
+  retrieveOAuthToken() {
+    firebase.auth().getRedirectResult().then(function(result) {
+      if (result.credential) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // ...
+      }
+      // The signed-in user info.
+      var user = result.user;
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+    });
+  }
+
   handleEmailChange = email => {
     this.setState({ email: email });
   };
  
+  handleChangePassword = password => {
+    this.setState({ password: password });
+  }
+
   submitEmail = () => {
-    firebase
-      .auth()
-      .sendPasswordResetEmail(this.state.email)
+    firebase.auth().sendPasswordResetEmail(this.state.email)
       .then(function() {
         Alert.alert("email sent");
       })
@@ -85,6 +186,21 @@ class LoginPage extends React.Component {
         Alert.alert(error.message);
       });
   };
+
+  createUser = () => {
+    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+    .then(function() {
+      Alert.alert(firebase.auth().tenantId)
+    });
+  }
+
+  signOutUser() {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+  }
 
   _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'abc');
@@ -134,14 +250,15 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: 'white',
     fontWeight: "300",
-    paddingTop: 100,
+    paddingTop: 1000,
   },
   ForgotPasswordSubHeading: {
     color: 'white',
     textAlign: 'center',
     fontWeight: "600",
     fontSize: 15,
-    paddingTop: 100,
+    paddingTop: 20,
+    fontWeight: 'bold',
   },
   changeEmail: {
     textDecorationColor: 'black',
@@ -149,8 +266,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
   },
+  changePassword: {
+    textDecorationColor: 'black',
+    fontSize: 14,
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+    paddingBottom: 20,
+  },
   scrollViewWrapper: {
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
+    paddingTop: 100,
   }
 });
 
