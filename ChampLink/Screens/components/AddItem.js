@@ -26,7 +26,8 @@ addItem(name, desc, date) {
   db.ref('/Events').push({
     name: name,
     desc: desc,
-    date: date
+    date: date,
+    url: url
   });
 };
 
@@ -48,10 +49,16 @@ addItem(name, desc, date) {
       date: e.nativeEvent.text
     });
   };
+
+  handleChangeUrl = e => {
+    this.setState({
+      url: e.nativeEvent.text
+    });
+  };
 // ^^^^ Cleanup later
 
   handleSubmit = () => {
-    this.addItem(this.state.name, this.state.desc, this.state.date);
+    this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
     Alert.alert('Event saved successfully');
   };
 
@@ -67,6 +74,9 @@ addItem(name, desc, date) {
 
         <Text style={styles.title}>Date of Event</Text>
         <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
+
+        <Text style={styles.title}>URL for More Information</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleChangeUrl} />
 
         <TouchableHighlight
           style={styles.button}

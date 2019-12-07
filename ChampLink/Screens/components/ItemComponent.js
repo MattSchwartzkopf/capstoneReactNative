@@ -3,7 +3,7 @@
 //
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class ItemComponent extends Component {
@@ -18,11 +18,11 @@ export default class ItemComponent extends Component {
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {Linking.openURL(item.url);}}>
               <View key={index} style={styles.eventSpacing}>
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
-                <Text style={styles.eventBoxDate}>When: {item.date}</Text>
+                <Text style={styles.eventBoxDate}>{item.date}</Text>
               </View>
             </TouchableOpacity>
           );
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 40,
+    paddingTop: 10,
     paddingBottom: 20,
     backgroundColor: '#02634b',
     textDecorationLine: 'underline'
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
     backgroundColor: '#02634b',
+    color: 'lightgrey',
   },
   eventSpacing: {
     paddingTop: 10,
