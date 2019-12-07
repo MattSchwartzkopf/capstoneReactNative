@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
         <View style={styles.scrollViewWrapper}>
 
           <Text style={styles.ForgotPasswordSubHeading}>
-          Enter your email to find account.
+          Enter your email
           </Text>
 
           <Text>{this.getUserInfo}</Text>
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     display: "flex",
     flex: 1,
-    backgroundColor: 'lightgreen'
+    backgroundColor: 'lightblue'
   },
   form: {
     textAlign: 'center',
@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontWeight: "600",
-    fontSize: 15,
+    fontSize: 25,
     paddingTop: 20,
     fontWeight: 'bold',
   },
@@ -257,6 +257,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     textDecorationLine: 'underline',
+    borderRadius: 20,
+    borderColor: 'blue',
+    borderWidth: 2,
+    paddingBottom: 10,
   },
   changePassword: {
     textDecorationColor: 'black',
@@ -264,6 +268,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textDecorationLine: 'underline',
     paddingBottom: 20,
+    borderRadius: 20,
+    borderColor: 'blue',
+    borderWidth: 2,
+    paddingBottom: 10,
   },
   scrollViewWrapper: {
     textDecorationLine: "underline",
