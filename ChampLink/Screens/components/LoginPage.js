@@ -88,8 +88,8 @@ class LoginPage extends React.Component {
               onChangeText={password => this.handleChangePassword(password)}
             />
 
+          <Button title="Sign In (Coming soon!)" onPress={this.signInUser} />
           <Button title="Change Password" onPress={this.submitEmail} disabled={false} />
-          <Button title="Sign In" onPress={this.authenticateUser} />
           <Button title='Create an Account!' onPress={this.createUser} />
 
         </View> 
@@ -124,9 +124,6 @@ class LoginPage extends React.Component {
       // The signed-in user info.
       var user = result.user;
       // ...
-      <style>
-      <Text>test</Text>
-    </style>
       retrieveOAuthToken()
       signInUser()
     }).catch(function(error) {
@@ -144,8 +141,8 @@ class LoginPage extends React.Component {
   }
 
   // To redirect user
-  signInUser() {
-    firebase.auth().signInWithRedirect(provider);
+  signInUser = () =>  {
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
   }
 
   retrieveOAuthToken() {
