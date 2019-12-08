@@ -143,7 +143,19 @@ class LoginPage extends React.Component {
 
   // To redirect user
   signInUser = () =>  {
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(function() {
+      Alert.alert("Signed In!")
+    }).catch(function(error) {
+      Alert.alert(error.message)
+    });
+  }
+
+  signOutUser() {
+    firebase.auth().signOut().then(function() {
+      Alert.alert("You have signed out!")
+    }).catch(function(error) {
+      Alert.alert(error.message)
+    });
   }
 
   retrieveOAuthToken() {
