@@ -192,14 +192,6 @@ class LoginPage extends React.Component {
     });
   }
 
-  signOutUser() {
-    firebase.auth().signOut().then(function() {
-      Alert.alert("Signed out from", firebase.auth().currentUser.email)
-    }).catch(function(error) {
-      Alert.alert(error.message)
-    });
-  }
-
   _signInAsync = async () => {
     await AsyncStorage.setItem('userToken', 'abc');
     this.props.navigation.navigate('App');

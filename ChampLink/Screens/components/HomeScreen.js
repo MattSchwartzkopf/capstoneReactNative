@@ -10,20 +10,18 @@
 
 'use strict';
 import Colors from './Colors';
-import {Image, Text, Button, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import {Image, Text, Button, StyleSheet, View, Alert, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 import * as firebase from 'firebase';
 import firestore from '@firebase/firestore';
 
 var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
-
-
-
 var provider = new firebase.auth.GoogleAuthProvider();
 
+//{firebase.auth().currentUser.email}
+//{firebase.auth().currentUser.uid}
+
 export default class HomeScreen extends React.Component {
-
-
   render() {
     <body>
       <script src="/__/firebase/7.5.2/firebase-app.js"></script>
@@ -42,13 +40,13 @@ export default class HomeScreen extends React.Component {
         {/* Title/Username - Can properly add names once Login is added*/}
         <Text id='username' style={styles.containerUsername}>
           <Text style={styles.userDisplayName}>Signed In As: </Text> 
-            {firebase.auth().currentUser.email}
+            {firebase.auth().currentUser ? firebase.auth().currentUser.email : "Not signed in"}
         </Text>
 
         {/* ID Number */}
         <Text id='username' style={styles.containerIdNumber}>
           <Text style={styles.userDisplayName}>ID: </Text> 
-            {firebase.auth().currentUser.uid}
+          {firebase.auth().currentUser ? firebase.auth().currentUser.uid : "Not signed in"}
         </Text>
 
         {/* This is the button to navigate to the Login Screen */}
@@ -85,6 +83,23 @@ export default class HomeScreen extends React.Component {
 
       </View>
     )
+  }
+  isLoggedInEmail=()=> {
+    if(firebase.auth().currentUser) {
+      return firebase.auth().currentUser.email
+    }
+    else {
+      return "Not signed in!";
+    }
+  }
+
+  isLoggedInUID=()=> {
+    if(firebase.auth().currentUser){
+      return firebase.auth().currentUser.uid;
+    }
+    else {
+      return "Not signed in!";
+    }
   }
 }
 

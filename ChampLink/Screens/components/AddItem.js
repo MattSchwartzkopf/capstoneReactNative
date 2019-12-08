@@ -14,15 +14,13 @@ import {
 
 import { db } from '../config';
 
-
-
 export default class AddItem extends Component {
   state = {
     title: '',
     desc: ''
   };
 
-addItem(name, desc, date) {
+addItem(name, desc, date, url) {
   db.ref('/Events').push({
     name: name,
     desc: desc,

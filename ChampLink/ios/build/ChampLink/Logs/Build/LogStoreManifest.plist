@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96</key>
+		<key>126831EB-D362-448C-AE9D-ADBED4FC98B1</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96.xcactivitylog</string>
+			<string>126831EB-D362-448C-AE9D-ADBED4FC98B1.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>597363700.75444496</real>
+			<real>597470560.07065499</real>
 			<key>timeStoppedRecording</key>
-			<real>597363701.77617705</real>
+			<real>597470561.03344905</real>
 			<key>title</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>21D3DDB3-96B7-4BCE-AFA0-A68E151D4E96</string>
+			<string>126831EB-D362-448C-AE9D-ADBED4FC98B1</string>
 		</dict>
-		<key>D723F68B-9401-40EE-AB7F-3C8BD6CCC3E1</key>
+		<key>D6E9FA44-6C4C-4775-9DE4-896AFA4FEF7B</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,7 +49,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>D723F68B-9401-40EE-AB7F-3C8BD6CCC3E1.xcactivitylog</string>
+			<string>D6E9FA44-6C4C-4775-9DE4-896AFA4FEF7B.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -66,13 +66,13 @@
 			<key>signature</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>597446126.19340098</real>
+			<real>597481848.270051</real>
 			<key>timeStoppedRecording</key>
-			<real>597446127.30856705</real>
+			<real>597481849.15160799</real>
 			<key>title</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>D723F68B-9401-40EE-AB7F-3C8BD6CCC3E1</string>
+			<string>D6E9FA44-6C4C-4775-9DE4-896AFA4FEF7B</string>
 		</dict>
 	</dict>
 </dict>
