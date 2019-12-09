@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     paddingBottom: 400,
-    backgroundColor: '#005393'
+    backgroundColor: '#005393',
+    paddingTop: 100,
   },
   title: {
     paddingTop: 20,
