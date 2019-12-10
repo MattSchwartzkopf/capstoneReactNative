@@ -24,5 +24,6 @@ import PollPageDetail from './components/PollPageDetail';
 import EventPageDetail from './components/EventPageDetail';
 import ItemComponent from './components/ItemComponent';
 import AddItem from './components/AddItem';
+import AddItemPolls from './components/AddItemPolls';
 
-export {Header, AddItem, ItemComponent, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
+export {Header, AddItemPolls, AddItem, ItemComponent, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
