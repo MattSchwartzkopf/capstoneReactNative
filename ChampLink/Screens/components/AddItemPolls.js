@@ -14,7 +14,7 @@
 
  import { db } from '../config';
 
- export default class AddItem extends Component {
+ export default class AddItemPolls extends Component {
    state = {
      title: '',
      desc: ''

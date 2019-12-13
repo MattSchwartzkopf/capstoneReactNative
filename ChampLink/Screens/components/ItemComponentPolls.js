@@ -3,34 +3,30 @@
 //
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import { TouchableOpacity, navigate, navigation } from 'react-native-gesture-handler';
 
-export default class ItemComponentPolls extends Component {
+
+export default class ItemComponentPolls extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome',
+  }
+
   static propTypes = {
     items: PropTypes.array.isRequired
   };
 
-  goToNotification = () => {
-    this.props.navigator('PollPageDetail')
-};
-
-_pressRow(){
-  this.props.navigator.navigate({
-    ident: "PollPageDetail",
-    sceneConfig: Navigator.SceneConfigs.FloatFromRight,
-  });
- }
-
   render() {
+    const {navigate} = this.props.navigation;
+
     return (
       /* This is where the view of each is configured */
-      <View style={styles.itemsList}>
+      <View style={styles.itemsList} >
         {this.props.items.map((item, index) => {
           return (
             // Each poll is spaced individually here
-            <TouchableOpacity
-              onPress={this.goToNotification}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('PollPageDetail')}>
               <View key={index} style={styles.eventSpacing}>
                 <Text style={styles.eventBoxName}>{item.title}</Text>
               </View>

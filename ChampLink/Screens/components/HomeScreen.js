@@ -10,7 +10,7 @@
 
 'use strict';
 import Colors from './Colors';
-import {Image, Text, Button, StyleSheet, View, Alert, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import {Image, Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import * as firebase from 'firebase';
 import firestore from '@firebase/firestore';

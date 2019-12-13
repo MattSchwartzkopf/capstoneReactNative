@@ -20,6 +20,7 @@ import {Text,
         Button, 
         StyleSheet, 
         View, } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
   <body>
   <script src="/__/firebase/7.5.2/firebase-app.js"></script>
@@ -43,7 +44,7 @@ class LoginPage extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'Please sign in',
+    title: '',
     headerTransparent: true,
     headerTintColor: 'white'
   };
@@ -56,11 +57,16 @@ class LoginPage extends React.Component {
 
         <View style={styles.scrollViewWrapper}>
 
-          <Text style={styles.ForgotPasswordSubHeading}>
+          <View style={styles.createAccountBanner}>
+            <Text style={styles.createAccountText}>
+              Create Account
+            </Text>
+          </View>
+          
+
+          <Text style={styles.enterEmailSubHeading}>
           Enter your email
           </Text>
-
-          <Text>{this.getUserInfo}</Text>
 
           <TextInput
               style={styles.changeEmail}
@@ -73,8 +79,8 @@ class LoginPage extends React.Component {
               onChangeText={email => this.handleEmailChange(email)}
             />
 
-          <Text style={styles.ForgotPasswordSubHeading}>
-          Enter your password to create an account
+          <Text style={styles.forgotPasswordSubHeading}>
+          Username
           </Text>
 
           <TextInput
@@ -88,10 +94,29 @@ class LoginPage extends React.Component {
               onChangeText={password => this.handleChangePassword(password)}
             />
 
-          <Button title="Sign In" onPress={this.signInUser} />
-          <Button title="Sign Out" onPress={this.signOutUser} />
-          <Button title="Change Password" onPress={this.submitEmail} disabled={false} />
-          <Button title='Create an Account!' onPress={this.createUser} />
+          <TouchableOpacity style={styles.accountButton}  onPress={this.signInUser}>
+            <Text style={styles.accountButtonText}>
+              Sign In
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.accountButton}  onPress={this.createUser}>
+            <Text style={styles.accountButtonText}>
+              Create Account
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.accountButton}  onPress={this.signOutUser}>
+            <Text style={styles.accountButtonText}>
+              Sign Out
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.accountButton}  onPress={this.submitEmail}>
+            <Text style={styles.accountButtonText}>
+              Forgot Password
+            </Text>
+          </TouchableOpacity>
 
         </View> 
     </KeyboardAvoidingView>
@@ -233,7 +258,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     display: "flex",
     flex: 1,
-    backgroundColor: 'lightblue'
+    backgroundColor: 'white'
   },
   form: {
     textAlign: 'center',
@@ -242,45 +267,81 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     flex: 1
   },
-  ForgotPasswordHeading: {
-    fontSize: 28,
-    color: 'white',
+  enterEmailSubHeading: {
+    color: 'black',
     fontWeight: "300",
-    paddingTop: 1000,
+    height: 40,
+    fontSize: 25,
+    paddingTop: 30,
+    paddingBottom: 40,
+    right: '-8%',
   },
-  ForgotPasswordSubHeading: {
-    color: 'white',
-    textAlign: 'center',
-    fontWeight: "600",
+  forgotPasswordSubHeading: {
+    color: 'black',
+    fontWeight: "300",
+    height: 40,
     fontSize: 25,
     paddingTop: 20,
-    fontWeight: 'bold',
+    paddingBottom: 40,
+    right: '-8%',
   },
   changeEmail: {
     textDecorationColor: 'black',
     fontSize: 14,
     textAlign: 'center',
     textDecorationLine: 'underline',
-    borderRadius: 20,
-    borderColor: 'blue',
-    borderWidth: 2,
+    paddingTop: 10,
+    borderColor: 'white',
     paddingBottom: 10,
+    backgroundColor: '#e2f8ff',
+    borderRightWidth: 30,
+    borderLeftWidth: 30,
+    height: 40,
   },
   changePassword: {
     textDecorationColor: 'black',
     fontSize: 14,
     textAlign: 'center',
-    textDecorationLine: 'underline',
-    paddingBottom: 20,
-    borderRadius: 20,
-    borderColor: 'blue',
-    borderWidth: 2,
+    paddingTop: 10,
+    borderColor: 'white',
     paddingBottom: 10,
+    backgroundColor: '#e2f8ff',
+    borderRightWidth: 30,
+    borderLeftWidth: 30,
+    height: 40,
   },
   scrollViewWrapper: {
-    textDecorationLine: "underline",
-    paddingTop: 100,
-  }
+    paddingTop: 0,
+  },
+  createAccountBanner: {
+    backgroundColor: '#00a9e1',
+    paddingBottom: 40,
+    shadowColor: 'silver',
+    shadowOffset: {height: 0, width: 0},
+    shadowOpacity: 40,
+    shadowRadius: 50,
+  },
+  createAccountText: {
+    textAlign: 'center',
+    paddingTop: 70,
+    color: 'white',
+    fontSize: 40,
+  },
+  accountButton: {
+    backgroundColor: "#28724f",
+    paddingBottom: 15,
+    paddingTop: 4,
+    borderRightWidth: 30,
+    borderLeftWidth: 30,
+    borderColor: 'white',
+    borderTopWidth: 20,
+  },
+  accountButtonText: {
+    textAlign: 'center',
+    color: 'white',
+    paddingTop: 7,
+    fontSize: 18,
+  },
 });
 
 export default LoginPage;

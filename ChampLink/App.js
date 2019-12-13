@@ -20,6 +20,7 @@ import {
   PollPage,
   AddItem,
   AddItemPolls,
+  ItemComponentPolls,
 } from './Screens/'
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
@@ -58,6 +59,9 @@ const AppNavigator = createStackNavigator({
   },
   AddItemPolls: {
     screen: AddItemPolls
+  },
+  ItemComponentPolls: {
+    screen: ItemComponentPolls
   }
 });
 

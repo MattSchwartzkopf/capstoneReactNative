@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 
-export default class ItemComponent extends Component {
+export default class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired
   };
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
     paddingBottom: 20,
-    backgroundColor: '#02634b',
+    backgroundColor: '#28724f',
     textDecorationLine: 'underline'
   },
   eventBoxDesc: {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#02634b',
+    backgroundColor: '#28724f',
   },
   eventBoxDate: {
     fontSize: 20,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#02634b',
+    backgroundColor: '#28724f',
     color: 'lightgrey',
   },
   eventSpacing: {
