@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import ItemComponentPolls from '../components/ItemComponentPolls';
+import ItemComponent from '../components/ItemComponent';
 
 import { db } from '../config';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
@@ -40,7 +40,7 @@ export default class List extends React.Component {
       <ScrollView>
         <View style={styles.container}>
           {this.state.items.length > 0 ? (
-            <ItemComponentPolls items={this.state.items} />
+            <ItemComponent items={this.state.items} />
           ) : (
             <Text>No items</Text>
           )}

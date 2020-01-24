@@ -29,7 +29,7 @@ export default class List extends React.Component {
       <View>
 
         <Text style={styles.theTitle}>
-          Champlain Poll
+          Event List
         </Text>
 
         <TouchableOpacity
