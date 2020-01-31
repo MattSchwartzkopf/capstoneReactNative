@@ -3,9 +3,10 @@
 //
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {Button, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
-
+import GoToChat from './GoToChat';
+import GotoEvent from './GotoEvent';
 export default class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired
@@ -15,6 +16,7 @@ export default class ItemComponent extends React.Component {
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
+        
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
@@ -23,6 +25,10 @@ export default class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
+                <View style={styles.fixToText}>
+                <GoToChat></GoToChat>
+                <GotoEvent></GotoEvent>
+                </View>
               </View>
             </TouchableOpacity>
           );
@@ -69,5 +75,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
-  }
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10
+  },
 });
