@@ -7,6 +7,9 @@ import {Button, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-
 import PropTypes from 'prop-types';
 import GoToChat from './GoToChat';
 import GotoEvent from './GotoEvent';
+import CreateRoom from './CreateRoom';
+import { withTheme } from 'react-native-elements';
+
 export default class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired
@@ -25,9 +28,12 @@ export default class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
-                <View style={styles.fixToText}>
-                <GoToChat></GoToChat>
-                <GotoEvent></GotoEvent>
+                <View style={styles.centerEnterChat}>
+
+                <TouchableOpacity>
+                  <CreateRoom items={item} />
+                </TouchableOpacity>
+
                 </View>
               </View>
             </TouchableOpacity>
@@ -81,4 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#DDDDDD',
     padding: 10
   },
+  centerEnterChat: {
+    alignItems: 'center',
+  }
 });

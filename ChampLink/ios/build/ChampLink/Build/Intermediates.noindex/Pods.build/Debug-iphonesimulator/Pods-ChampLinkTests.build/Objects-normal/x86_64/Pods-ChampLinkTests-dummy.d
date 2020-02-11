@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/Pods-ChampLinkTests/Pods-ChampLinkTests-dummy.m
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/Pods-ChampLinkTests/Pods-ChampLinkTests-dummy.m
