@@ -3,14 +3,11 @@
 //
 
 import React, { Component } from 'react';
-import {Button, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import GoToChat from './GoToChat';
-import GotoEvent from './GotoEvent';
-import CreateRoom from './CreateRoom';
-import { withTheme } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
-export default class ItemComponent extends React.Component {
+class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired
   };
@@ -28,13 +25,12 @@ export default class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
-                <View style={styles.centerEnterChat}>
-
-                <TouchableOpacity>
-                  <CreateRoom items={item} />
-                </TouchableOpacity>
-
+                <View style={styles.centerEnterChat}>                
                 </View>
+                
+                <TouchableOpacity onPress={() => {
+                    this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text>Join Chat!</Text>
+                    </TouchableOpacity>
               </View>
             </TouchableOpacity>
           );
@@ -43,6 +39,8 @@ export default class ItemComponent extends React.Component {
     );
   }
 }
+
+export default withNavigation(ItemComponent);
 
 const styles = StyleSheet.create({
   itemsList: {

@@ -34,7 +34,7 @@ export default class CreateRoom extends React.Component {
       .then(currentUser => {
         this.currentUser = currentUser;
         this.currentUser.subscribeToRoom({
-          roomId: CHATKIT_ROOM_ID,
+          roomId: this.props.items.name,
           hooks: {
             onMessage: this.onReceive,
           },
@@ -44,18 +44,26 @@ export default class CreateRoom extends React.Component {
         console.log(err);
       });
   }
-    
-  //                  //
-  //                  // 
-  // TO ADD EVENTUALLY
-  //                  // 
-  //                  //
-  /*
+
+  subscribeRoom() {
+    currentUser
+    .subscribeToRoom({
+      roomId: presenceRoomId,
+      // action hooks. These functions will be executed when any of the four events below happens
+      hooks: {
+        onUserCameOnline: this.handleInUser,
+        onUserJoinedRoom: this.handleInUser,
+        onUserLeftRoom: this.handleOutUser,
+        onUserWentOffline: this.handleOutUser
+      }
+    })
+  }
+  
   addUserToRoom() {
     const { newUser, currentUser, currentRoom } = this;
     currentUser.addUserToRoom({
-      userId: newUser,
-      roomId: currentRoom.id
+      userId: CHATKIT_USER_NAME,
+      roomId: this.props.items.name
     })
       .then((currentRoom) => {
         this.roomUsers = currentRoom.users;
@@ -66,7 +74,6 @@ export default class CreateRoom extends React.Component {
 
     this.newUser = '';
   }
-  */
 
   // Create a room
   createRoom() {
@@ -76,14 +83,18 @@ export default class CreateRoom extends React.Component {
         private: false,
     }) .catch(err => {
       console.log("nope");
-    });
-      
-    }
+    });  
+  }
     
+  main() {
+    this.componentDidMount();
+    this.subscribeToRoom();
+    this.addUserToRoom();
+  }
       render() {
         return (
           <View>
-              <TouchableOpacity onPress={() => {this.createRoom()}}>
+              <TouchableOpacity onPress={() => {this.main}}>
                   <Text>Join Chat Room</Text>
               </TouchableOpacity>
           </View>
