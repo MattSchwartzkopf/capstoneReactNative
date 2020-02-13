@@ -19,7 +19,7 @@ class ItemComponent extends React.Component {
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
-            <TouchableOpacity onPress={() => {Linking.openURL(item.url);}}>
+            <TouchableOpacity onPress={() => { Linking.openURL(item.url);}}>
               <View key={index} style={styles.eventSpacing}>
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
