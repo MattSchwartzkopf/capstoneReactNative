@@ -6,7 +6,9 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
-
+import GoToChat from './GoToChat';
+import GotoEvent from './GotoEvent';
+import CreateRoom from './CreateRoom';
 class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
