@@ -3,9 +3,6 @@
 //
 
 import React, { Component } from 'react';
-import { db } from '../config';
-import { GiftedChat } from "react-native-gifted-chat";
-import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import {
   View,
   Text,
@@ -15,18 +12,13 @@ import {
   Alert
 } from 'react-native';
 
-const CHATKIT_TOKEN_PROVIDER_ENDPOINT = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/3e9e4ccf-100e-4f02-9151-768b4e9475de/token';
-const CHATKIT_INSTANCE_LOCATOR = 'v1:us1:3e9e4ccf-100e-4f02-9151-768b4e9475de';
-const CHATKIT_USER_NAME = 'Dave';
+import { db } from '../config';
 
 export default class AddItem extends Component {
   state = {
     title: '',
-    names: '',
-    desc: '',
-    date: '',
-    url: '',
-};
+    desc: ''
+  };
 
 addItem(name, desc, date, url) {
   db.ref('/Events').push({
@@ -36,13 +28,39 @@ addItem(name, desc, date, url) {
     url: url
   });
 };
+
+// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+  handleChangeName = e => {
+    this.setState({
+      name: e.nativeEvent.text
+    });
+  };
+
+  handleChangeDesc = e => {
+    this.setState({
+      desc: e.nativeEvent.text
+    });
+  };
+
+  handleChangeDate = e => {
+    this.setState({
+      date: e.nativeEvent.text
+    });
+  };
+
+  handleChangeUrl = e => {
+    this.setState({
+      url: e.nativeEvent.text
+    });
+  };
+// ^^^^ Cleanup later
+
   handleSubmit = () => {
-    this.addItem(this.state.names, this.state.desc, this.state.date, this.state.url);
-    this.createRoom();
+    this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
     Alert.alert('Event saved successfully');
   };
 
-/*
+  /*
   // PUSHER and Firebase Info
   componentDidMount() {
     const tokenProvider = new TokenProvider({
@@ -98,22 +116,22 @@ addItem(name, desc, date, url) {
       <View style={styles.main}>
 
         <Text style={styles.title}>Event Name</Text>
-        <TextInput style={styles.itemInput} onChange={(value) => this.setState({ value })} value={this.state.names} />
+        <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
 
         <Text style={styles.title}>Event Description</Text>
-        <TextInput style={styles.itemInput} onChange={(value) => this.state.desc} />
+        <TextInput style={styles.itemInput} onChange={this.handleChangeDesc} />
 
         <Text style={styles.title}>Date of Event</Text>
-        <TextInput style={styles.itemInput} onChange={(value) => this.state.date} />
+        <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
 
         <Text style={styles.title}>URL for More Information</Text>
-        <TextInput style={styles.itemInput} onChange={(value) => this.state.url} />
+        <TextInput style={styles.itemInput} onChange={this.handleChangeUrl} />
 
         <TouchableHighlight
           style={styles.button}
           underlayColor="white"
-          onPress={this.handleSubmit}>
-            
+          onPress={this.handleSubmit}
+        >
           <Text style={styles.buttonText}>Add</Text>
         </TouchableHighlight>
       </View>
