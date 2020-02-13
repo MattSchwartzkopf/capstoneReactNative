@@ -3,6 +3,9 @@
 //
 
 import React, { Component } from 'react';
+import { db } from '../config';
+import { GiftedChat } from "react-native-gifted-chat";
+import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import {
   View,
   Text,
@@ -12,75 +15,96 @@ import {
   Alert
 } from 'react-native';
 
-import { db } from '../config';
+const CHATKIT_TOKEN_PROVIDER_ENDPOINT = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/3e9e4ccf-100e-4f02-9151-768b4e9475de/token';
+const CHATKIT_INSTANCE_LOCATOR = 'v1:us1:3e9e4ccf-100e-4f02-9151-768b4e9475de';
+const CHATKIT_USER_NAME = 'Dave';
 
 export default class AddItem extends Component {
   state = {
     title: '',
-    desc: ''
-  };
-
-addItem(name, desc, date, url) {
-  db.ref('/Events').push({
-    name: name,
-    desc: desc,
-    date: date,
-    url: url
-  });
+    names: '',
+    desc: '',
+    date: '',
+    url: '',
 };
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
-  handleChangeName = e => {
-    this.setState({
-      name: e.nativeEvent.text
+  addItem(name, desc, date, url) {
+    db.ref('/Events').push({
+      name: name,
+      desc: desc,
+      date: date,
+      url: url
     });
   };
-
-  handleChangeDesc = e => {
-    this.setState({
-      desc: e.nativeEvent.text
-    });
-  };
-
-  handleChangeDate = e => {
-    this.setState({
-      date: e.nativeEvent.text
-    });
-  };
-
-  handleChangeUrl = e => {
-    this.setState({
-      url: e.nativeEvent.text
-    });
-  };
-// ^^^^ Cleanup later
 
   handleSubmit = () => {
-    this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
+    this.addItem(this.state.names, this.state.desc, this.state.date, this.state.url);
+    this.createRoom();
     Alert.alert('Event saved successfully');
   };
+
+/*
+  // PUSHER and Firebase Info
+  componentDidMount() {
+    const tokenProvider = new TokenProvider({
+      url: CHATKIT_TOKEN_PROVIDER_ENDPOINT,
+    });
+
+    const chatManager = new ChatManager({
+      instanceLocator: CHATKIT_INSTANCE_LOCATOR,
+      userId: CHATKIT_USER_NAME,
+      tokenProvider: tokenProvider,
+    });
+
+    chatManager
+      .connect()
+      .then(currentUser => {
+        this.currentUser = currentUser;
+        this.currentUser.subscribeToRoom({
+          roomId: this.navigate,
+          hooks: {
+            onMessage: this.onReceive,
+          },
+        });
+      })
+      .catch(err => {
+        console.log("FUCK");
+        console.log(err);
+      });
+  }
+  // Create a room
+  createRoom() {
+    const room = this.currentUser.createRoom({
+        id: this.state.name,
+        name: navigation.state.params.items,
+        private: false,
+    }) .catch(err => {
+      console.log(err);
+    });
+  }
+  */
 
   render() {
     return (
       <View style={styles.main}>
 
         <Text style={styles.title}>Event Name</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
+        <TextInput style={styles.itemInput} onChange={(value) => this.setState({ value })} value={this.state.names} />
 
         <Text style={styles.title}>Event Description</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeDesc} />
+        <TextInput style={styles.itemInput} onChange={(value) => this.state.desc} />
 
         <Text style={styles.title}>Date of Event</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
+        <TextInput style={styles.itemInput} onChange={(value) => this.state.date} />
 
         <Text style={styles.title}>URL for More Information</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeUrl} />
+        <TextInput style={styles.itemInput} onChange={(value) => this.state.url} />
 
         <TouchableHighlight
           style={styles.button}
           underlayColor="white"
-          onPress={this.handleSubmit}
-        >
+          onPress={this.handleSubmit}>
+            
           <Text style={styles.buttonText}>Add</Text>
         </TouchableHighlight>
       </View>

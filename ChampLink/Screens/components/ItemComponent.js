@@ -16,7 +16,6 @@ class ItemComponent extends React.Component {
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
-        
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
@@ -27,10 +26,11 @@ class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
                 <View style={styles.centerEnterChat}>                
                 </View>
-                
-                <TouchableOpacity onPress={() => {
-                    this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text>Join Chat!</Text>
-                    </TouchableOpacity>
+
+                {/* Join chat room button */}
+                <TouchableOpacity style={styles.chatRoom} onPress={() => {
+                    this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text style={styles.chatRoomText}>Join Chat</Text>
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
           );
@@ -39,7 +39,6 @@ class ItemComponent extends React.Component {
     );
   }
 }
-
 export default withNavigation(ItemComponent);
 
 const styles = StyleSheet.create({
@@ -87,5 +86,14 @@ const styles = StyleSheet.create({
   },
   centerEnterChat: {
     alignItems: 'center',
+  },
+  chatRoom: {
+    alignItems: 'center',
+    fontSize: 40,
+  },
+  chatRoomText: {
+    color: 'white',
+    fontSize: 20,
+    textDecorationStyle: "solid",
   }
 });

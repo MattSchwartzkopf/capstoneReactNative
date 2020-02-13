@@ -27,16 +27,13 @@ export default class List extends React.Component {
   render() {
     return (
       <View>
-
         <Text style={styles.theTitle}>
           Event List
         </Text>
-
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('AddItem')}>
             <Text style={styles.createEventButton}>Create an Event</Text>
         </TouchableOpacity>
-
       <ScrollView>
         <View style={styles.container}>
           {this.state.items.length > 0 ? (

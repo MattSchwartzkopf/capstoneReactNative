@@ -1,10 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import ItemComponent from '../components/ItemComponent';
-import { db } from '../config';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import Chatkit from '@pusher/chatkit-client';
-import { GiftedChat } from "react-native-gifted-chat";
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import PropTypes from 'prop-types';
 
@@ -45,6 +40,7 @@ export default class CreateRoom extends React.Component {
       });
   }
 
+  // Subscribes to selected room for user
   subscribeRoom() {
     currentUser
     .subscribeToRoom({
@@ -59,6 +55,7 @@ export default class CreateRoom extends React.Component {
     })
   }
   
+  // Adds user to selected room
   addUserToRoom() {
     const { newUser, currentUser, currentRoom } = this;
     currentUser.addUserToRoom({
@@ -75,7 +72,7 @@ export default class CreateRoom extends React.Component {
     this.newUser = '';
   }
 
-  // Create a room
+  // Create a room in Pusher
   createRoom() {
     const room = this.currentUser.createRoom({
         id: this.props.items.name,
