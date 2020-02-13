@@ -3,15 +3,12 @@
 //
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {Button, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 import GoToChat from './GoToChat';
 import GotoEvent from './GotoEvent';
 import CreateRoom from './CreateRoom';
 import { withTheme } from 'react-native-elements';
-=======
->>>>>>> parent of 5cedf98da... Created/Linked event and chat together
 
 export default class ItemComponent extends React.Component {
   static propTypes = {
@@ -22,6 +19,7 @@ export default class ItemComponent extends React.Component {
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
+        
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
@@ -30,7 +28,6 @@ export default class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
-<<<<<<< HEAD
                 <View style={styles.centerEnterChat}>
 
                 <TouchableOpacity>
@@ -38,8 +35,6 @@ export default class ItemComponent extends React.Component {
                 </TouchableOpacity>
 
                 </View>
-=======
->>>>>>> parent of 5cedf98da... Created/Linked event and chat together
               </View>
             </TouchableOpacity>
           );
@@ -86,7 +81,6 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
-<<<<<<< HEAD
   },
   button: {
     alignItems: 'center',
@@ -95,7 +89,5 @@ const styles = StyleSheet.create({
   },
   centerEnterChat: {
     alignItems: 'center',
-=======
->>>>>>> parent of 5cedf98da... Created/Linked event and chat together
   }
 });
