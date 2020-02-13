@@ -40,9 +40,7 @@ export default class List extends React.Component {
       <ScrollView>
         <View style={styles.container}>
           {this.state.items.length > 0 ? (
-            <View style={styles.container}>
-                <ItemComponent items={this.state.items} />
-            </View>
+            <ItemComponent items={this.state.items} />
           ) : (
             <Text>No items</Text>
           )}

@@ -10,6 +10,7 @@
 
 'use strict';
 import Colors from './Colors';
+import type {Node} from 'react';
 import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
 import React from 'react';
 
@@ -17,7 +18,7 @@ var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
 function Separator(){
   return <View style={styles.separator} />;
 }
-class EventPageDetail extends React.Component {
+class EventPageDetail extends React.Component<{}> {
   render() {
     return (
       <View>
