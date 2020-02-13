@@ -22,6 +22,10 @@ var provider = new firebase.auth.GoogleAuthProvider();
 //{firebase.auth().currentUser.uid}
 
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.navigate = this.props.navigation.navigate; }
+
   render() {
     <body>
       <script src="/__/firebase/7.5.2/firebase-app.js"></script>
@@ -76,7 +80,7 @@ export default class HomeScreen extends React.Component {
         {/* This is the button to navigate to the Chat Screen */}
         <TouchableOpacity
           style={styles.loginScreenButton}
-          onPress={() => this.props.navigation.navigate('MyChat')}
+          onPress={() => this.props.navigation.navigate('MyChat', {items: "Information Session and Tour"},)}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Chat!</Text>
         </TouchableOpacity>

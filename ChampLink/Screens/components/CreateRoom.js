@@ -1,10 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
-import ItemComponent from '../components/ItemComponent';
-import { db } from '../config';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import Chatkit from '@pusher/chatkit-client';
-import { GiftedChat } from "react-native-gifted-chat";
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 import PropTypes from 'prop-types';
 
@@ -34,7 +29,7 @@ export default class CreateRoom extends React.Component {
       .then(currentUser => {
         this.currentUser = currentUser;
         this.currentUser.subscribeToRoom({
-          roomId: CHATKIT_ROOM_ID,
+          roomId: this.props.items.name,
           hooks: {
             onMessage: this.onReceive,
           },
@@ -44,18 +39,28 @@ export default class CreateRoom extends React.Component {
         console.log(err);
       });
   }
-    
-  //                  //
-  //                  // 
-  // TO ADD EVENTUALLY
-  //                  // 
-  //                  //
-  /*
+
+  // Subscribes to selected room for user
+  subscribeRoom() {
+    currentUser
+    .subscribeToRoom({
+      roomId: presenceRoomId,
+      // action hooks. These functions will be executed when any of the four events below happens
+      hooks: {
+        onUserCameOnline: this.handleInUser,
+        onUserJoinedRoom: this.handleInUser,
+        onUserLeftRoom: this.handleOutUser,
+        onUserWentOffline: this.handleOutUser
+      }
+    })
+  }
+  
+  // Adds user to selected room
   addUserToRoom() {
     const { newUser, currentUser, currentRoom } = this;
     currentUser.addUserToRoom({
-      userId: newUser,
-      roomId: currentRoom.id
+      userId: CHATKIT_USER_NAME,
+      roomId: this.props.items.name
     })
       .then((currentRoom) => {
         this.roomUsers = currentRoom.users;
@@ -66,9 +71,8 @@ export default class CreateRoom extends React.Component {
 
     this.newUser = '';
   }
-  */
 
-  // Create a room
+  // Create a room in Pusher
   createRoom() {
     const room = this.currentUser.createRoom({
         id: this.props.items.name,
@@ -76,14 +80,18 @@ export default class CreateRoom extends React.Component {
         private: false,
     }) .catch(err => {
       console.log("nope");
-    });
-      
-    }
+    });  
+  }
     
+  main() {
+    this.componentDidMount();
+    this.subscribeToRoom();
+    this.addUserToRoom();
+  }
       render() {
         return (
           <View>
-              <TouchableOpacity onPress={() => {this.createRoom()}}>
+              <TouchableOpacity onPress={() => {this.main}}>
                   <Text>Join Chat Room</Text>
               </TouchableOpacity>
           </View>

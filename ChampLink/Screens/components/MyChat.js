@@ -1,4 +1,3 @@
-// GiftedChatWithChatkit/MyChat.js
 import React from "react";
 import { GiftedChat } from "react-native-gifted-chat";
 import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
@@ -9,7 +8,15 @@ const CHATKIT_ROOM_ID = 'Information Session and Tour';
 const CHATKIT_USER_NAME = 'Dave';
 
 export default class MyChat extends React.Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.navigate = this.props.navigation.state.params.items; }
+    
+  // Grabs parameters given
+  static navigationOptions = ({ navigation }) => ({
+    title: `Chat with ${navigation.state.params.items}`,
+  });
+    state = {
     messages: []
   };
 
@@ -33,12 +40,13 @@ export default class MyChat extends React.Component {
     }));
   };
 
+  // Sends a message to user in chat room
   onSend = (messages = []) => {
     messages.forEach(message => {
       this.currentUser
         .sendMessage({
           text: message.text,
-          roomId: CHATKIT_ROOM_ID,
+          roomId: this.navigate,
         })
         .then(() => {})
         .catch(err => {
@@ -63,7 +71,7 @@ export default class MyChat extends React.Component {
       .then(currentUser => {
         this.currentUser = currentUser;
         this.currentUser.subscribeToRoom({
-          roomId: CHATKIT_ROOM_ID,
+          roomId: this.navigate,
           hooks: {
             onMessage: this.onReceive,
           },
@@ -77,11 +85,9 @@ export default class MyChat extends React.Component {
   render() {
     return (
       <GiftedChat
-        messages={this.state.messages}
-        onSend={messages => this.onSend(messages)}
-        user={{
-          _id: CHATKIT_USER_NAME
-        }}
+      messages={this.state.messages}
+      onSend={messages => this.onSend(messages)}
+      user={{_id: CHATKIT_USER_NAME}}
       />
     );
   }

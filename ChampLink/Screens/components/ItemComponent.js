@@ -3,14 +3,11 @@
 //
 
 import React, { Component } from 'react';
-import {Button, View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import PropTypes from 'prop-types';
-import GoToChat from './GoToChat';
-import GotoEvent from './GotoEvent';
-import CreateRoom from './CreateRoom';
-import { withTheme } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
-export default class ItemComponent extends React.Component {
+class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     ids: PropTypes.array.isRequired
@@ -20,7 +17,6 @@ export default class ItemComponent extends React.Component {
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
-        
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
@@ -46,6 +42,7 @@ export default class ItemComponent extends React.Component {
     );
   }
 }
+export default withNavigation(ItemComponent);
 
 const styles = StyleSheet.create({
   itemsList: {
@@ -92,5 +89,14 @@ const styles = StyleSheet.create({
   },
   centerEnterChat: {
     alignItems: 'center',
+  },
+  chatRoom: {
+    alignItems: 'center',
+    fontSize: 40,
+  },
+  chatRoomText: {
+    color: 'white',
+    fontSize: 20,
+    textDecorationStyle: "solid",
   }
 });
