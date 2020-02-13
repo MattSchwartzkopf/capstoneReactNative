@@ -22,16 +22,20 @@ const CHATKIT_USER_NAME = 'Dave';
 export default class AddItem extends Component {
   state = {
     title: '',
-    desc: ''
-  };
+    names: '',
+    desc: '',
+    date: '',
+    url: '',
+};
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
-  handleChangeName = e => {
-    this.setState({
-      name: e.nativeEvent.text
-    });
-  };
-
+addItem(name, desc, date, url) {
+  db.ref('/Events').push({
+    name: name,
+    desc: desc,
+    date: date,
+    url: url
+  });
+};
   handleSubmit = () => {
     this.addItem(this.state.names, this.state.desc, this.state.date, this.state.url);
     this.createRoom();
