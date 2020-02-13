@@ -3,13 +3,17 @@ import { Button } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 class MyBackButton extends React.Component {
+
   render() {
     return (
       <Button
         title="Go To Event"
         color =  "yellow"
         onPress={() => {
-          this.props.navigation.navigate("EventPageDetail");
+          this.props.navigation.navigate(
+            "EventPageDetail",
+            {key: this.props.id},
+            );
         }}
       />
     );

@@ -10,15 +10,37 @@
 
 'use strict';
 import Colors from './Colors';
-import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, Alert} from 'react-native';
 import React from 'react';
+import { db } from '../config';
+import PropTypes from 'prop-types';
+
 
 var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
 function Separator(){
   return <View style={styles.separator} />;
 }
+let name = null, desc = null, url = null, date = null ;
+
+function handleDetail(eDate, eDesc, eName, eUrl){
+  name = eName;
+  desc = eDesc;
+  url = eUrl;
+  date = eDate;
+}
 class EventPageDetail extends React.Component {
+  static propTypes = {
+    items: PropTypes.array.isRequired,
+  };
   render() {
+    let key = "/Events/" + this.props.navigation.state.params.key;
+    key = 
+    db.ref(key).on('value', snapshot => {
+      let data = snapshot.val();
+      let items = Object.values(data);
+      {handleDetail(items[0],items[1],items[2],items[3]);}
+    })
+ 
     return (
       <View>
         <Text></Text>
@@ -26,24 +48,11 @@ class EventPageDetail extends React.Component {
         <Text id='username' style={styles.containerUsername}>
           Welcome to Event Page {accountNames[0]}
         </Text>
-        <Image  style={{
-          width: 400,
-          height: 200,
-          }}
-          source={require('./event.png')}/>
         <Separator/>
-        <Text id='description' style={styles.containerPollInfo}>
-          Event name: Eat Foood Hungry Me !
-        </Text>
-        <Text id='description' style={styles.eventDescription}>
-          Event description: Me hungry very much so me eat!
-        </Text>
-        <Text id='location' style={styles.eventDescription}>
-          Event location: Anywhere!
-        </Text>
-        <Text id='time' style={styles.eventDescription}>
-          Event description: Right now pls!
-        </Text>
+        <Text>Name: {name} </Text>
+        <Text>Date: {desc} </Text>  
+        <Text>DESC: {date} </Text>
+        <Text>URL: {url} </Text>
         <SafeAreaView>
           <ScrollView>
             <TouchableOpacity
@@ -65,6 +74,7 @@ class EventPageDetail extends React.Component {
               <View>
               <Text style = {styles.text}>Ask questions!</Text>
               <Text style = {styles.smalltext}>Not yet implemented!</Text>
+              <Text style={styles.myStyle}>{this.props.navigation.state.params.key}</Text>
               </View>
             </TouchableOpacity>
 

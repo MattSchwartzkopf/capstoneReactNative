@@ -12,7 +12,8 @@ import { withTheme } from 'react-native-elements';
 
 export default class ItemComponent extends React.Component {
   static propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    ids: PropTypes.array.isRequired
   };
 
   render() {
@@ -28,11 +29,13 @@ export default class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
+                <Text style={styles.eventBoxDate}>{this.props.id}</Text>
                 <View style={styles.centerEnterChat}>
-
+                <GotoEvent id={this.props.id}/>
                 <TouchableOpacity>
                   <CreateRoom items={item} />
                 </TouchableOpacity>
+                
 
                 </View>
               </View>

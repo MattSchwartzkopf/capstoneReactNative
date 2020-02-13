@@ -13,7 +13,8 @@ let itemsRef = db.ref('/Events');
 
 export default class List extends React.Component {
   state = {
-    items: []
+    items: [],
+    id: []
   };
 
   componentDidMount() {
@@ -21,8 +22,12 @@ export default class List extends React.Component {
       let data = snapshot.val();
       let items = Object.values(data);
       this.setState({ items });
-    });
+    })
+    itemsRef.on("child_added", snapshot => {
+      this.state.id = snapshot.key;
+    })
   }
+
 
   render() {
     return (
@@ -41,7 +46,8 @@ export default class List extends React.Component {
         <View style={styles.container}>
           {this.state.items.length > 0 ? (
             <View style={styles.container}>
-                <ItemComponent items={this.state.items} />
+                <ItemComponent items={this.state.items} id={this.state.id}/>
+
             </View>
           ) : (
             <Text>No items</Text>

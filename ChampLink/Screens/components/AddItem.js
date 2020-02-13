@@ -20,15 +20,6 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-addItem(name, desc, date, url) {
-  db.ref('/Events').push({
-    name: name,
-    desc: desc,
-    date: date,
-    url: url
-  });
-};
-
 // CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
   handleChangeName = e => {
     this.setState({
@@ -56,8 +47,14 @@ addItem(name, desc, date, url) {
 // ^^^^ Cleanup later
 
   handleSubmit = () => {
-    this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
-    Alert.alert('Event saved successfully');
+    var temp = db.ref('/Events').push({
+      name: this.state.name,
+      desc: this.state.desc,
+      date: this.state.date,
+      url: this.state.url,
+    });
+    //this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
+    Alert.alert('succesfully saved key is: ' + temp.getKey());
   };
 
   render() {
