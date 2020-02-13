@@ -5,7 +5,7 @@ import { ChatManager, TokenProvider } from '@pusher/chatkit-client';
 
 const CHATKIT_TOKEN_PROVIDER_ENDPOINT = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/3e9e4ccf-100e-4f02-9151-768b4e9475de/token';
 const CHATKIT_INSTANCE_LOCATOR = 'v1:us1:3e9e4ccf-100e-4f02-9151-768b4e9475de';
-const CHATKIT_ROOM_ID = 'f017ac6a-2f4a-46c1-af5c-c9487dd06d87';
+const CHATKIT_ROOM_ID = 'Information Session and Tour';
 const CHATKIT_USER_NAME = 'Dave';
 
 export default class MyChat extends React.Component {

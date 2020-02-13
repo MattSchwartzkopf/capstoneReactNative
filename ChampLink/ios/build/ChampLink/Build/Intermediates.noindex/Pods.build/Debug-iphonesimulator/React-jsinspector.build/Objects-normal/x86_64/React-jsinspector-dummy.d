@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsinspector/React-jsinspector-dummy.m \
-  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsinspector/React-jsinspector-prefix.pch
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsinspector/React-jsinspector-dummy.m \
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsinspector/React-jsinspector-prefix.pch

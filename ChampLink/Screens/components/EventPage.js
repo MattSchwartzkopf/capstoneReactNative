@@ -5,7 +5,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import ItemComponent from '../components/ItemComponent';
-
+import CreateRoom from '../components/CreateRoom';
 import { db } from '../config';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -47,11 +47,10 @@ export default class List extends React.Component {
             <Text>No items</Text>
           )}
         </View>
-
       </ScrollView>
       </View>
     );
-  }
+  } 
 }
 
 const styles = StyleSheet.create({

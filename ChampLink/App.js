@@ -21,6 +21,7 @@ import {
   AddItem,
   AddItemPolls,
   ItemComponentPolls,
+  CreateRoom,
 } from './Screens/'
 
 {/* This is what the pages are navigated with, essentially like a `main` */}
@@ -62,6 +63,9 @@ const AppNavigator = createStackNavigator({
   },
   ItemComponentPolls: {
     screen: ItemComponentPolls
+  },
+  CreateRoom: {
+    screen: CreateRoom
   }
 });
 

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsiexecutor/React-jsiexecutor-dummy.m \
-  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsiexecutor/React-jsiexecutor-prefix.pch
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsiexecutor/React-jsiexecutor-dummy.m \
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/React-jsiexecutor/React-jsiexecutor-prefix.pch
