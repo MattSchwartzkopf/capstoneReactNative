@@ -26,6 +26,5 @@ import ItemComponent from './components/ItemComponent';
 import AddItem from './components/AddItem';
 import AddItemPolls from './components/AddItemPolls';
 import ItemComponentPolls from './components/ItemComponentPolls';
-import CreateRoom from './components/CreateRoom';
 
-export {Header, CreateRoom, AddItemPolls, AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
+export {Header, AddItemPolls, AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};

@@ -1,10 +1,10 @@
 dependencies: \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGConfig.cpp \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/Yoga/Yoga-prefix.pch \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGConfig.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/Yoga-internal.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/CompactValue.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGValue.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
-  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGConfig.cpp \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/Yoga/Yoga-prefix.pch \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGConfig.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/Yoga-internal.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/CompactValue.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGValue.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGEnums.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/YGMacros.h \
+  /Users/matthewschwartzkopf/Desktop/capstoneReactNative/ChampLink/node_modules/react-native/ReactCommon/yoga/yoga/Yoga.h

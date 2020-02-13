@@ -81,13 +81,6 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
-apply from: "../../node_modules/react-native/react.gradle"
-apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
-
-CHATKIT_INSTANCE_LOCATOR_ID="YOUR CHATKIT APP INSTANCE (omit v1:us1:)"
-CHATKIT_SECRET_KEY="YOUR CHATKIT SECRET"
-CHATKIT_WEBHOOK_SECRET="iWontTell"
-FIREBASE_SENDER_ID="YOUR FIREBASE SENDER ID"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -189,10 +182,6 @@ dependencies {
     implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
-    implementation 'com.google.firebase:firebase-core:16.0.1' 
-    implementation 'com.google.firebase:firebase-core:16.0.8' 
-    implementation 'com.google.android.gms:play-services-base:16.1.0' 
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
