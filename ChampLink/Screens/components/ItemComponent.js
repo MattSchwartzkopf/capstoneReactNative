@@ -3,7 +3,7 @@
 //
 
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Linking, Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import GoToChat from './GoToChat';
@@ -12,24 +12,24 @@ import CreateRoom from './CreateRoom';
 class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    ids: PropTypes.array.isRequired
   };
 
   render() {
+ 
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
-            <TouchableOpacity onPress={() => { Linking.openURL(item.url);}}>
+            <TouchableOpacity onPress={() => {Linking.openURL(item.url);}}>
               <View key={index} style={styles.eventSpacing}>
                 <Text style={styles.eventBoxName}>{item.name}</Text>
                 <Text style={styles.eventBoxDesc}>{item.desc}</Text>
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
                 <Text style={styles.eventBoxDate}>{this.props.id}</Text>
                 <View style={styles.centerEnterChat}>
-                <GotoEvent id={this.props.items}/>
+                <GotoEvent id={this.props.id} index={index}/>
                 <TouchableOpacity style={styles.chatRoom} onPress={() => {
                     this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text style={styles.chatRoomText}>Join Chat</Text>
                 </TouchableOpacity>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   eventBoxDate: {
     fontSize: 20,
     fontWeight: 'bold',
-    textAlign: 'left',
+    textAlign: 'left',                    
     paddingTop: 5,
     paddingBottom: 5,
     backgroundColor: '#28724f',

@@ -14,7 +14,6 @@ let itemsRef = db.ref('/Events');
 export default class List extends React.Component {
   state = {
     items: [],
-    id: []
   };
 
   componentDidMount() {

@@ -73,6 +73,8 @@ class EventPageDetail extends React.Component {
   }
 
   render(id, name, date, desc, url) {
+
+
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
@@ -83,6 +85,10 @@ class EventPageDetail extends React.Component {
             <TouchableOpacity onPress={() => { Linking.openURL(item.url);}}>
               <View key={index} style={styles.eventSpacing}>
                 <Text style={styles.eventBoxName}>{this.state.events[index]}</Text>
+                <Text>{"    "}</Text>
+                <Text>id: {this.props.navigation.state.params.id}</Text>
+                <Text>Index: {this.props.navigation.state.params.key}</Text>
+                <Text>{"    "}</Text>
                 <View style={styles.centerEnterChat}>
                 
                 </View>
