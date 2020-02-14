@@ -1,8 +1,12 @@
 import React from 'react';
 import { Button } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import PropTypes from 'prop-types';
 
 class MyBackButton extends React.Component {
+  static propTypes = {
+    items: PropTypes.array.isRequired,
+  };
 
   render() {
     return (
@@ -12,7 +16,7 @@ class MyBackButton extends React.Component {
         onPress={() => {
           this.props.navigation.navigate(
             "EventPageDetail",
-            {key: this.props.id},
+            {items: this.props.items},
             );
         }}
       />

@@ -29,7 +29,7 @@ class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
                 <Text style={styles.eventBoxDate}>{this.props.id}</Text>
                 <View style={styles.centerEnterChat}>
-                <GotoEvent id={this.props.id}/>
+                <GotoEvent id={this.props.items}/>
                 <TouchableOpacity style={styles.chatRoom} onPress={() => {
                     this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text style={styles.chatRoomText}>Join Chat</Text>
                 </TouchableOpacity>
