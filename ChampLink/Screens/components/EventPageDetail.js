@@ -76,29 +76,55 @@ class EventPageDetail extends React.Component {
 
 
     return (
-      /* This is where the view of each is configured */
-      <View style={styles.itemsList}>
-        {this.state.events.map((item, index) => {
+      <View>
+        <Text></Text>
+        {/* Title/Username - Can properly add names once Login is added*/}
+        <Text id='username' style={styles.containerUsername}>{this.state.events[3]}</Text>
+        <Image  style={{
+          width: 400,
+          height: 200,
+          }}
+          source={require('./event.png')}/>
+        <Separator/>
+        <Text id='description' style={styles.containerPollInfo}>
+          {this.state.events[3]}
+        </Text>
+        <Text></Text>
+        <Text id='description' style={styles.eventDescription}>
+          {this.state.events[1]}
+        </Text>
+        <Text></Text>
+        <Text id='location' style={styles.eventDescription}>
+          {this.state.events[2]}
+        </Text>
+        <SafeAreaView>
+          <ScrollView>
+            <TouchableOpacity
+              style={styles.loginScreenButton}
+              onPress={() => this.props.navigation.navigate('MyChat')}
+              underlayColor='#fff'>
+              <Separator/>
+              <View>
+              <Text style = {styles.text}>Go to Chat</Text>
 
-          return (
-            // Each event is spaced individually here
-            <TouchableOpacity onPress={() => { Linking.openURL(item.url);}}>
-              <View key={index} style={styles.eventSpacing}>
-                <Text style={styles.eventBoxName}>{this.state.events[index]}</Text>
-                <Text>{"    "}</Text>
-                <Text>id: {this.props.navigation.state.params.id}</Text>
-                <Text>Index: {this.props.navigation.state.params.key}</Text>
-                <Text>{"    "}</Text>
-                <View style={styles.centerEnterChat}>
-                
-                </View>
               </View>
             </TouchableOpacity>
-          );
-      })
-      }
+            <TouchableOpacity
+               style = {styles.submitButton}
+               onPress = {
+                  () => this.login(this.state.email, this.state.password)
+               }>
+              <Separator/>
+              <View>
+              <Text style = {styles.text}>Ask questions!</Text>
+              <Text style = {styles.smalltext}>Not yet implemented!</Text>
+              </View>
+            </TouchableOpacity>
+
+          </ScrollView>
+        </SafeAreaView>
       </View>
-    );
+      );
     }
   }
 

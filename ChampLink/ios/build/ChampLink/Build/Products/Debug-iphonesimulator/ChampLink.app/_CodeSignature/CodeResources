@@ -6,11 +6,11 @@
 	<dict>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		ekQv/+nS8/GjugHfH8N9A+cxyXw=
+		XoriNtanwreyrjAQpJkp1z1RSco=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		yWi6B8rs3iickpcK1drh3a/CBwI=
+		pfJtSV47CfwXSca4+u/GdikZRjw=
 		</data>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
 		<data>
@@ -75,11 +75,11 @@
 		</data>
 		<key>PlugIns/ChampLinkTests.xctest.dSYM/Contents/Resources/DWARF/ChampLinkTests</key>
 		<data>
-		0aDAGTFeP68Fq9/JLd9a5MFP8/U=
+		dXcP1WZ2iebto6sfMZ4v6cBtgnY=
 		</data>
 		<key>PlugIns/ChampLinkTests.xctest/ChampLinkTests</key>
 		<data>
-		xdn+KacFq5unI3zwi2PmE/wU8dk=
+		JgGH0aRfkt0Pppq9ar0QFpVNQB4=
 		</data>
 		<key>PlugIns/ChampLinkTests.xctest/Info.plist</key>
 		<data>
@@ -96,22 +96,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ekQv/+nS8/GjugHfH8N9A+cxyXw=
+			XoriNtanwreyrjAQpJkp1z1RSco=
 			</data>
 			<key>hash2</key>
 			<data>
-			DHaQeYuv4Y3T4hZ52IzoEK8nlBrzNknTowedQlmJumA=
+			jxjO5IHmJ4JiKsqk1nEml3yV5QRaWPytQbECj2+CwDk=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yWi6B8rs3iickpcK1drh3a/CBwI=
+			pfJtSV47CfwXSca4+u/GdikZRjw=
 			</data>
 			<key>hash2</key>
 			<data>
-			qST3qJnDpP/CpMGeYHGWa+IJqvTe8U4alQT4bZ8JDPI=
+			vp5RK67NzbTy8nEoT3gZz6OODnuzTALjqd4UtECfphk=
 			</data>
 		</dict>
 		<key>Frameworks/XCTAutomationSupport.framework/Info.plist</key>
@@ -252,22 +252,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0aDAGTFeP68Fq9/JLd9a5MFP8/U=
+			dXcP1WZ2iebto6sfMZ4v6cBtgnY=
 			</data>
 			<key>hash2</key>
 			<data>
-			rer10oySp8fWhYAiDfTgEz8QDx8jSBbUu6HiD/mNRsI=
+			ZI1sTMuArsfpEJ43nn54j7J69HQKBhA5ENLr3yujIVE=
 			</data>
 		</dict>
 		<key>PlugIns/ChampLinkTests.xctest/ChampLinkTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xdn+KacFq5unI3zwi2PmE/wU8dk=
+			JgGH0aRfkt0Pppq9ar0QFpVNQB4=
 			</data>
 			<key>hash2</key>
 			<data>
-			CILec/NtlJgwNkat4oCf3LDgunD64VVq3uTOVU6VIho=
+			VH0V+nXXAqwYXo37bjg0iOhRolWoMh/LGvPwONY/r60=
 			</data>
 		</dict>
 		<key>PlugIns/ChampLinkTests.xctest/Info.plist</key>
