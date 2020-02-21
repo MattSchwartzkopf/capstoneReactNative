@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 class MyBackButton extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
+    stuff: PropTypes.array.isRequired,
   };
 
   render() {
@@ -17,6 +18,7 @@ class MyBackButton extends React.Component {
           this.props.navigation.navigate(
             "EventPageDetail",
             {items: this.props.items},
+            {stuff: this.props.stuff},
             );
         }}
       />

@@ -15,7 +15,6 @@ class ItemComponent extends React.Component {
   };
 
   render() {
- 
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
@@ -29,7 +28,9 @@ class ItemComponent extends React.Component {
                 <Text style={styles.eventBoxDate}>{item.date}</Text>
                 <Text style={styles.eventBoxDate}>{this.props.id}</Text>
                 <View style={styles.centerEnterChat}>
-                <GotoEvent id={this.props.id} index={index}/>
+                <TouchableOpacity style={styles.chatRoom} onPress={() => {
+                    this.props.navigation.navigate("EventPageDetail", {stuff: [item.name, item.date, item.desc]},)}}><Text style={styles.chatRoomText}>Join Event</Text>
+                </TouchableOpacity>
                 <TouchableOpacity style={styles.chatRoom} onPress={() => {
                     this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text style={styles.chatRoomText}>Join Chat</Text>
                 </TouchableOpacity>
