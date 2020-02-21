@@ -16,18 +16,24 @@ import React from 'react';
 function Separator(){
   return <View style={styles.separator} />;
 }
-
+  
 class EventPageDetail extends React.Component {
+  
   constructor(props) {
     super(props);
-    this.items = this.props.navigation.state.params.stuff; }
+    this.items = this.props.navigation.state.params.stuff; 
+    this.state = {
+      answer1Count: 0,
+      answer2Count: 0,
+    }
+  }
 
-    handleAnswer1() {
-      console.log("handleAnswer1");
+    handleAnswer1 = () => {
+      this.setState({answer1Count: this.state.answer1Count + 1});
     }
 
-    handleAnswer2() {
-      console.log("handleAnswer2");
+    handleAnswer2 = () => {
+      this.setState({answer2Count: this.state.answer2Count + 1});
     }
     
   render() {
@@ -49,7 +55,7 @@ class EventPageDetail extends React.Component {
           color="#F44336"
           onPress={this.handleAnswer1}
         >
-          <Text style={styles.buttonText}>{this.items[3]}</Text>
+          <Text style={styles.buttonText}>{this.items[3]} : {this.state.answer1Count}</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -58,7 +64,7 @@ class EventPageDetail extends React.Component {
           underlayColor="green"
           onPress={this.handleAnswer2}
         >
-          <Text style={styles.buttonText}>{this.items[4]}</Text>
+          <Text style={styles.buttonText}>{this.items[4]} : {this.state.answer2Count}</Text>
         </TouchableHighlight>
 
         <SafeAreaView>
