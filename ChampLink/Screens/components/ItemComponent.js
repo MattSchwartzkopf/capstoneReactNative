@@ -3,12 +3,10 @@
 //
 
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Linking, Alert } from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Linking, Alert, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
-import GoToChat from './GoToChat';
-import GotoEvent from './GotoEvent';
-import CreateRoom from './CreateRoom';
+
 class ItemComponent extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
@@ -21,21 +19,11 @@ class ItemComponent extends React.Component {
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
-            <TouchableOpacity onPress={() => {Linking.openURL(item.url);}}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("EventPageDetail", {stuff: [item.name, item.date, item.desc, item.url]})}>
               <View key={index} style={styles.eventSpacing}>
-                <Text style={styles.eventBoxName}>{item.name}</Text>
-                <Text style={styles.eventBoxDesc}>{item.desc}</Text>
-                <Text style={styles.eventBoxDate}>{item.date}</Text>
-                <Text style={styles.eventBoxDate}>{this.props.id}</Text>
+              <Text style={styles.eventBoxName}>{item.name}</Text>
+              <Image  style={styles.imageSize} source={require('./event.png')}/>
                 <View style={styles.centerEnterChat}>
-                <TouchableOpacity style={styles.chatRoom} onPress={() => {
-                    this.props.navigation.navigate("EventPageDetail", {stuff: [item.name, item.date, item.desc]},)}}><Text style={styles.chatRoomText}>Join Event</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.chatRoom} onPress={() => {
-                    this.props.navigation.navigate("MyChat", {items: item.name},)}}><Text style={styles.chatRoomText}>Join Chat</Text>
-                </TouchableOpacity>
-                
-
                 </View>
               </View>
             </TouchableOpacity>
@@ -58,8 +46,8 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
-    paddingTop: 10,
-    paddingBottom: 20,
+    paddingTop: 5,
+    paddingBottom: 10,
     backgroundColor: '#28724f',
     textDecorationLine: 'underline'
   },
@@ -101,5 +89,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
     textDecorationStyle: "solid",
+  },
+  imageSize: {
+    width: 400,
+    height: 200,
   }
 });

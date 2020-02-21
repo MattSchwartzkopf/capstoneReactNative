@@ -10,7 +10,7 @@
 
 'use strict';
 import Colors from './Colors';
-import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, Alert} from 'react-native';
+import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, Linking} from 'react-native';
 import React from 'react';
 
 function Separator(){
@@ -28,20 +28,15 @@ class EventPageDetail extends React.Component {
         <Text></Text>
         {/* Title/Username - Can properly add names once Login is added*/}
         <Text style={styles.containerUsername}>{this.items[0]}</Text>
-        <Image  style={{
-          width: 400,
-          height: 200,
-          }}
+        <Image  style={styles.imageSize}
           source={require('./event.png')}/>
         <Separator/>
-        <Text id='description' style={styles.containerPollInfo}>
-          {this.items[2]}
-        </Text>
-        <Text></Text>
-        <Text id='date' style={styles.eventDescription}>
-          {this.items[1]}
-        </Text>
-        <Text></Text>
+        <Text id='description' style={styles.containerPollInfo}> {this.items[2]} </Text>
+        <Separator/>
+        <Text id='date' style={styles.eventDescription}> {this.items[1]} </Text>
+
+        <Separator/>    
+        <Text id='url' style={styles.text} onPress={() => {Linking.openURL(this.items[3]);}}>Learn More!</Text>
 
         <SafeAreaView>
           <ScrollView>
@@ -74,6 +69,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
     marginLeft: -10
+  },
+  eventSpacing: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   containerIdNumber: {
     textAlign: 'right',
@@ -126,6 +127,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'left',
     color: Colors.black,
+  },
+  imageSize: {
+    width: 400,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
