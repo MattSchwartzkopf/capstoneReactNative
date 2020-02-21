@@ -9,7 +9,8 @@ import {
   TouchableHighlight,
   StyleSheet,
   TextInput,
-  Alert
+  Alert,
+  ScrollView
 } from 'react-native';
 
 import { db } from '../config';
@@ -20,12 +21,13 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-addItem(name, desc, date, url) {
+addItem(name, question, date, answer1, answer2) {
   db.ref('/Polls').push({
     name: name,
-    desc: desc,
+    question: question,
     date: date,
-    url: url
+    answer1: answer1,
+    answer2: answer2,
   });
 };
 
@@ -36,9 +38,9 @@ addItem(name, desc, date, url) {
     });
   };
 
-  handleChangeDesc = e => {
+  handleQuestion = e => {
     this.setState({
-      desc: e.nativeEvent.text
+      question: e.nativeEvent.text
     });
   };
 
@@ -48,15 +50,21 @@ addItem(name, desc, date, url) {
     });
   };
 
-  handleChangeUrl = e => {
+  handleAnswer1 = e => {
     this.setState({
-      url: e.nativeEvent.text
+      answer1: e.nativeEvent.text
+    });
+  };
+
+  handleAnswer2 = e => {
+    this.setState({
+      answer2: e.nativeEvent.text
     });
   };
 // ^^^^ Cleanup later
 
   handleSubmit = () => {
-    this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
+    this.addItem(this.state.name, this.state.question, this.state.date, this.state.answer1, this.state.answer2);
     Alert.alert('Event saved successfully');
   };
 
@@ -64,17 +72,20 @@ addItem(name, desc, date, url) {
     return (
       <View style={styles.main}>
 
-        <Text style={styles.title}>Polls Name</Text>
+        <Text style={styles.title}>Author's Name</Text>
         <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
 
-        <Text style={styles.title}>Polls Description</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeDesc} />
+        <Text style={styles.title}>Question</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleQuestion} />
 
         <Text style={styles.title}>Date Created</Text>
         <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
 
-        <Text style={styles.title}>URL for More Information</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeUrl} />
+        <Text style={styles.title}>Answer 1</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleAnswer1} />
+
+        <Text style={styles.title}>Answer 2</Text>
+        <TextInput style={styles.itemInput} onChange={this.handleAnswer2} />
 
         <TouchableHighlight
           style={styles.button}
@@ -94,9 +105,7 @@ const styles = StyleSheet.create({
     padding: 30,
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingBottom: 400,
     backgroundColor: '#005393',
-    paddingTop: 100,
   },
   title: {
     paddingTop: 20,

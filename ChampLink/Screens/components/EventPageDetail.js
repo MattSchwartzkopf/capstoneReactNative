@@ -28,13 +28,11 @@ class EventPageDetail extends React.Component {
         <Text></Text>
         {/* Title/Username - Can properly add names once Login is added*/}
         <Text style={styles.containerUsername}>{this.items[0]}</Text>
-        <Image  style={styles.imageSize}
-          source={require('./event.png')}/>
+        <Image  style={styles.imageSize} source={require('./event.png')}/>
         <Separator/>
         <Text id='description' style={styles.containerPollInfo}> {this.items[2]} </Text>
         <Separator/>
         <Text id='date' style={styles.eventDescription}> {this.items[1]} </Text>
-
         <Separator/>    
         <Text id='url' style={styles.text} onPress={() => {Linking.openURL(this.items[3]);}}>Learn More!</Text>
 

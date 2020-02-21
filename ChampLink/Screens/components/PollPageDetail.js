@@ -10,56 +10,68 @@
 
 'use strict';
 import Colors from './Colors';
-import type {Node} from 'react';
-import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, TouchableHighlight} from 'react-native';
 import React from 'react';
 
-var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
 function Separator(){
   return <View style={styles.separator} />;
 }
-class PollPageDetail extends React.Component<{}> {
+
+class EventPageDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.items = this.props.navigation.state.params.stuff; }
+
+    handleAnswer1() {
+      console.log("handleAnswer1");
+    }
+
+    handleAnswer2() {
+      console.log("handleAnswer2");
+    }
+    
   render() {
     return (
       <View>
         <Text></Text>
         {/* Title/Username - Can properly add names once Login is added*/}
-        <Text id='username' style={styles.containerUsername}>
-          Welcome to PollPage {accountNames[0]}
-        </Text>
-        <Image  style={{
-          width: 400,
-          height: 200,
-          }}
-          source={require('./breakfast.png')}/>
+        <Text id="question" style={styles.containerUsername}>{this.items[0]}</Text>
+        <Image  style={styles.imageSize} source={require('./event.png')}/>
         <Separator/>
-        <Text id='description' style={styles.containerPollInfo}>
-          Why chicken pot pie is so good ?
-        </Text>
+        <Text id='date' style={styles.containerPollInfo}> {this.items[2]} </Text>
+        <Separator/>
+        <Text id='creatorName' style={styles.eventDescription}> Creator: {this.items[1]} </Text>
+        
+        <TouchableHighlight
+          id = 'answer1'
+          style={styles.button}
+          underlayColor="green"
+          color="#F44336"
+          onPress={this.handleAnswer1}
+        >
+          <Text style={styles.buttonText}>{this.items[3]}</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          id = 'answer2'
+          style={styles.button}
+          underlayColor="green"
+          onPress={this.handleAnswer2}
+        >
+          <Text style={styles.buttonText}>{this.items[4]}</Text>
+        </TouchableHighlight>
 
         <SafeAreaView>
           <ScrollView>
             <TouchableOpacity
-               style = {styles.submitButton}
-               onPress = {
-                  () => this.login(this.state.email, this.state.password)
-               }>
+              style={styles.loginScreenButton}
+              onPress={() => this.props.navigation.navigate('MyChat', {items: this.items[0]})}
+              underlayColor='#fff'>
               <Separator/>
               <View>
-              <Text style = {styles.text}>Option 1: Because you're hungry</Text>
+              <Text style = {styles.text}>Go to Chat</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity
-               style = {styles.submitButton}
-               onPress = {
-                  () => this.login(this.state.email, this.state.password)
-               }>
-              <Separator/>
-              <View>
-              <Text style = {styles.text}> Option 2: Because it has lot lot of gravy and chicken. What not to love</Text>
-              </View>
-            </TouchableOpacity>
-
           </ScrollView>
         </SafeAreaView>
       </View>
@@ -80,6 +92,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: 10,
     marginLeft: -10
+  },
+  eventSpacing: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   containerIdNumber: {
     textAlign: 'right',
@@ -127,6 +145,35 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     color: Colors.black,
   },
+  smalltext: {
+    fontSize: 15,
+    fontWeight: '600',
+    textAlign: 'left',
+    color: Colors.black,
+  },
+  imageSize: {
+    width: 400,
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
 });
 
-export default PollPageDetail;
+export default EventPageDetail;
