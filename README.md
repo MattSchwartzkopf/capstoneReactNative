@@ -18,12 +18,7 @@
 ### Terminal Window #2:
   1. Open new Terminal Window and `cd [filename]`
   2. Run `react-native run-ios --simulator="iPhone 8 Plus"`
-  
-  # More help: 
-  https://facebook.github.io/react-native/docs/getting-started.html
-  
-  # More info on potential features: 
-  https://facebook.github.io/react-native/docs/performance
+
 
 # Toubleshooting
  ### Xcode > File > Preferences > Location > Set dependencies
