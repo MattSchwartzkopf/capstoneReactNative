@@ -41,7 +41,7 @@ export default class List extends React.Component {
         <View style={styles.container}>
           {this.state.items.length > 0 ? (
             <View style={styles.container}>
-                <ItemComponent items={this.state.items} id={this.state.id}/>
+                <ItemComponent items={this.state.items}/>
 
             </View>
           ) : (

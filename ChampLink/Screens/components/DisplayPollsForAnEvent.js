@@ -4,6 +4,7 @@
 
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import ItemComponentPollsForEvent from '../components/ItemComponentPollsForEvent';
 import ItemComponentPolls from '../components/ItemComponentPolls';
 
 import { db } from '../config';
@@ -12,6 +13,10 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 let itemsRef = db.ref('/PollForEvent');
 
 export default class List extends React.Component {
+  constructor(props) {
+    super(props);
+    this.name = this.props.navigation.state.params.items; }
+    
   state = {
     items: []
   };
@@ -29,7 +34,7 @@ export default class List extends React.Component {
       <View>
 
         <Text style={styles.theTitle}>
-          Champlain Poll
+         {this.name} Poll
         </Text>
 
         <TouchableOpacity
@@ -40,7 +45,7 @@ export default class List extends React.Component {
       <ScrollView>
         <View style={styles.container}>
           {this.state.items.length > 0 ? (
-            <ItemComponentPolls items={this.state.items} />
+               <ItemComponentPollsForEvent eventName = {this.name} items={this.state.items}/>
           ) : (
             <Text>No items</Text>
           )}

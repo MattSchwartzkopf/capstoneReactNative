@@ -21,6 +21,7 @@ import {
   PollPage,
   AddItem,
   AddItemPolls,
+  ItemComponentPollsForEvent,
   AddPollEvent,
   ItemComponentPolls,
   CreateRoom,
@@ -56,6 +57,9 @@ const AppNavigator = createStackNavigator({
   },
   MyChat: {
     screen: MyChat
+  },
+  ItemComponentPollsForEvent: {
+    screen: ItemComponentPollsForEvent
   },
   AddItem: {
     screen: AddItem

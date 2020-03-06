@@ -71,7 +71,7 @@ addItem(name, question, date, answer1, answer2) {
   render() {
     return (
       <View style={styles.main}>
-        <Text style={styles.title}>Author's Name</Text>
+        <Text style={styles.title}>Exact name of the event</Text>
         <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
 
         <Text style={styles.title}>Question</Text>
