@@ -12,6 +12,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import {
   EventPage,
+  DisplayPollsForAnEvent,
   LoginPage,
   HomeScreen,
   MyChat,
@@ -20,6 +21,7 @@ import {
   PollPage,
   AddItem,
   AddItemPolls,
+  AddPollEvent,
   ItemComponentPolls,
   CreateRoom,
 } from './Screens/'
@@ -60,6 +62,12 @@ const AppNavigator = createStackNavigator({
   },
   AddItemPolls: {
     screen: AddItemPolls
+  },
+  DisplayPollsForAnEvent: {
+    screen: DisplayPollsForAnEvent
+  },
+  AddPollEvent: {
+    screen: AddPollEvent
   },
   ItemComponentPolls: {
     screen: ItemComponentPolls

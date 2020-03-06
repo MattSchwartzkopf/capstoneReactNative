@@ -47,6 +47,24 @@ class EventPageDetail extends React.Component {
               <Text style = {styles.text}>Go to Chat</Text>
               </View>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.loginScreenButton}
+              onPress={() => this.props.navigation.navigate("AddPollEvent")}
+              underlayColor='#fff'>
+              <Separator/>
+              <View>
+              <Text style = {styles.text}>Create Poll for this Event</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.loginScreenButton}
+              onPress={() => this.props.navigation.navigate("DisplayPollsForAnEvent")}
+              underlayColor='#fff'>
+              <Separator/>
+              <View>
+              <Text style = {styles.text}>Display Polls for This event</Text>
+              </View>
+            </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
       </View>

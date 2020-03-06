@@ -23,9 +23,11 @@ import PollPageDetail from './components/PollPageDetail';
 import EventPageDetail from './components/EventPageDetail';
 import ItemComponent from './components/ItemComponent';
 import AddItem from './components/AddItem';
-import AddItemPolls from './components/AddItemPolls';
+import AddItemPolls from './components/AddItemPolls';DisplayPollsForAnEvent
+import DisplayPollsForAnEvent from './components/DisplayPollsForAnEvent';
+import AddPollEvent from './components/AddPollEvent';
 import ItemComponentPolls from './components/ItemComponentPolls';
 import CreateRoom from './components/CreateRoom';
 import MyChat from './components/MyChat';
 
-export {Header, CreateRoom, AddItemPolls, AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
+export {Header, CreateRoom,DisplayPollsForAnEvent, AddItemPolls, AddPollEvent,AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
