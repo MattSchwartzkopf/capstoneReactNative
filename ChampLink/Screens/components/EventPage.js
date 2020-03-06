@@ -3,17 +3,22 @@
 //
 
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 import ItemComponent from '../components/ItemComponent';
 import CreateRoom from '../components/CreateRoom';
 import { db } from '../config';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import * as firebase from 'firebase';
+
 
 let itemsRef = db.ref('/Events');
+const userName =firebase.auth().currentUser ? firebase.auth().currentUser.email : "Not signed in";
+
 
 export default class List extends React.Component {
   state = {
     items: [],
+    users: [],
   };
 
   componentDidMount() {
@@ -22,9 +27,57 @@ export default class List extends React.Component {
       let items = Object.values(data);
       this.setState({ items });
     })
-    itemsRef.on("child_added", snapshot => {
-      this.state.id = snapshot.key;
+  }
+
+  handleAdminCheck = () => {
+
+    let userRef = db.ref('/UserPermission');
+
+    userRef.on('value', snapshot => {
+      let data = snapshot.val();
+      let users = Object.values(data);
+      this.setState({ users });
     })
+
+    var isAdmin = false;
+    {this.state.users.map((item, index) => {
+      if(item.name == userName){
+        Alert.alert("Current user is an admin therefore you can add user")
+        isAdmin = true;
+      }
+    })}
+
+      if(isAdmin == true){
+        return(
+          <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('AddItem')}>
+            <Text style={styles.createEventButton}>Create an Event</Text>
+        </TouchableOpacity>
+        )
+      }
+    return(
+      <View>
+      <Text style={styles.createEventButton}>Can't create event. Not an admin</Text>
+      <Text style={styles.createEventButton}>{userName}</Text>
+      </View>
+    )
+  };
+
+  displayUser = () => {
+    return(
+      <ScrollView>
+      <View style={styles.container}>
+        {this.state.items.length > 0 ? (
+          <View style={styles.container}>
+              <ItemComponent items={this.state.items}/>
+
+          </View>
+        ) : (
+          <Text>No items</Text>
+        )}
+      </View>
+    </ScrollView>
+    )
   }
 
   render() {
@@ -33,22 +86,8 @@ export default class List extends React.Component {
         <Text style={styles.theTitle}>
           Event List
         </Text>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('AddItem')}>
-            <Text style={styles.createEventButton}>Create an Event</Text>
-        </TouchableOpacity>
-      <ScrollView>
-        <View style={styles.container}>
-          {this.state.items.length > 0 ? (
-            <View style={styles.container}>
-                <ItemComponent items={this.state.items}/>
-
-            </View>
-          ) : (
-            <Text>No items</Text>
-          )}
-        </View>
-      </ScrollView>
+        {this.handleAdminCheck()}
+        {this.displayUser()}
       </View>
     );
   } 

@@ -14,12 +14,15 @@ import {
   EventPage,
   DisplayPollsForAnEvent,
   LoginPage,
+  ItemComponentManageUser,
+  ManageUserPage,
   HomeScreen,
   MyChat,
   EventPageDetail,
   PollPageDetail,
   PollPage,
   AddItem,
+  AddPerson,
   AddItemPolls,
   ItemComponentPollsForEvent,
   AddPollEvent,
@@ -55,8 +58,17 @@ const AppNavigator = createStackNavigator({
   LoginPage: {
     screen: LoginPage
   },
+  ItemComponentManageUser: {
+    screen: ItemComponentManageUser
+  },
+  ManageUserPage: {
+    screen: ManageUserPage
+  },
   MyChat: {
     screen: MyChat
+  },
+  AddPerson: {
+    screen: AddPerson
   },
   ItemComponentPollsForEvent: {
     screen: ItemComponentPollsForEvent

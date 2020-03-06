@@ -3,21 +3,17 @@
 //
 
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
-import ItemComponentPolls from '../components/ItemComponentPolls';
-
+import { View, Text, StyleSheet, Button, Alert } from 'react-native';
 import { db } from '../config';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
-
-
-let itemsRef = db.ref('/Polls');
+let itemsRef = db.ref('/UserPermission');
 const userName =firebase.auth().currentUser ? firebase.auth().currentUser.email : "Not signed in";
+
 export default class List extends React.Component {
   state = {
     items: [],
-    users: [],
   };
 
   componentDidMount() {
@@ -25,20 +21,12 @@ export default class List extends React.Component {
       let data = snapshot.val();
       let items = Object.values(data);
       this.setState({ items });
-    });
+    })
   }
 
   handleAdminCheck = () => {
-    let userRef = db.ref('/UserPermission');
-
-    userRef.on('value', snapshot => {
-      let data = snapshot.val();
-      let users = Object.values(data);
-      this.setState({ users });
-    })
-
     var isAdmin = false;
-    {this.state.users.map((item, index) => {
+    {this.state.items.map((item, index) => {
       if(item.name == userName){
         Alert.alert("Current user is an admin therefore you can add user")
         isAdmin = true;
@@ -48,48 +36,55 @@ export default class List extends React.Component {
       if(isAdmin == true){
         return(
           <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('AddItemPolls')}>
-            <Text style={styles.createEventButton}>Create a Poll</Text>
+          onPress={() => this.props.navigation.navigate('AddPerson')}>
+            <Text style={styles.createEventButton}>Add User</Text>
         </TouchableOpacity>
         )
       }
     return(
       <View>
-      <Text style={styles.createEventButton}>Can't create event. Not an admin</Text>
+      <Text style={styles.createEventButton}>Can't add users cause you're not an admin</Text>
       <Text style={styles.createEventButton}>{userName}</Text>
       </View>
     )
   };
 
-
   displayUser = () => {
     return(
-      <ScrollView>
-        <View style={styles.container}>
+      <View style={styles.container}>
           {this.state.items.length > 0 ? (
-            <ItemComponentPolls items={this.state.items} />
+            <View style={styles.container}>
+                <View style={styles.itemsList}>
+              {this.state.items.map((item, index) => {
+          return (
+              <View key={index} style={styles.eventSpacing}>
+              <Text style={styles.eventBoxDesc}>{item.name} -:- {item.permission}</Text>
+              </View>
+          );
+        })}
+      </View>
+            </View>
           ) : (
             <Text>No items</Text>
           )}
         </View>
-
-      </ScrollView>
     )
   }
 
-  
+
   render() {
     return (
       <View>
-
         <Text style={styles.theTitle}>
-          Champlain Poll
+          List of Users
         </Text>
-        {this.handleAdminCheck()}
-        {this.displayUser()}
+      {this.handleAdminCheck()}
+      <ScrollView>
+      {this.displayUser()}
+      </ScrollView>
       </View>
     );
-  }
+  } 
 }
 
 const styles = StyleSheet.create({

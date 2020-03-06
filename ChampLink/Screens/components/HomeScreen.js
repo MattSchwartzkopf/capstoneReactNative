@@ -15,8 +15,6 @@ import React from 'react';
 import * as firebase from 'firebase';
 import firestore from '@firebase/firestore';
 
-var accountNames = ["Tien Nguyen", "Matthew Schwartzkopf"]
-var provider = new firebase.auth.GoogleAuthProvider();
 
 //{firebase.auth().currentUser.email}
 //{firebase.auth().currentUser.uid}
@@ -83,6 +81,14 @@ export default class HomeScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('MyChat', {items: "Information Session and Tour"},)}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Chat!</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity
+          style={styles.loginScreenButton}
+          onPress={() => this.props.navigation.navigate('ManageUserPage')}
+          underlayColor='#fff'>
+          <Text style={styles.loginText}>Manage Users!</Text>
         </TouchableOpacity>
 
       </View>
