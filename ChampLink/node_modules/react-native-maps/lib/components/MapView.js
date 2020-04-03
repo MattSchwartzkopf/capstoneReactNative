@@ -22,7 +22,9 @@ import MapOverlay from './MapOverlay';
 import MapUrlTile from './MapUrlTile';
 import MapWMSTile from './MapWMSTile';
 import MapLocalTile from './MapLocalTile';
+import MapHeatMap from './MapHeatmap';
 import AnimatedRegion from './AnimatedRegion';
+import Geojson from './Geojson';
 import {
   contextTypes as childContextTypes,
   getAirMapName,
@@ -401,6 +403,12 @@ const propTypes = {
   onMapReady: PropTypes.func,
 
   /**
+   * Callback that is called once all tiles have been loaded
+   * (or failed permanently) and labels have been rendered.
+   */
+  onMapLoaded: PropTypes.func,
+
+  /**
    * Callback that is called once the kml is fully loaded.
    */
   onKmlReady: PropTypes.func,
@@ -419,6 +427,11 @@ const propTypes = {
    * Callback that is called when user taps on the map.
    */
   onPress: PropTypes.func,
+
+  /**
+   * Callback that is called when user double taps on the map.
+   */
+  onDoublePress: PropTypes.func,
 
   /**
    * Callback that is called when user makes a "long press" somewhere on the map.
@@ -1063,6 +1076,7 @@ MapView.Circle = MapCircle;
 MapView.UrlTile = MapUrlTile;
 MapView.MapWMSTile = MapWMSTile;
 MapView.LocalTile = MapLocalTile;
+MapView.Heatmap = MapHeatMap;
 MapView.Overlay = MapOverlay;
 MapView.Callout = MapCallout;
 MapView.CalloutSubview = MapCalloutSubview;
@@ -1071,5 +1085,7 @@ MapView.ProviderPropType = ProviderPropType;
 
 MapView.Animated = Animated;
 MapView.AnimatedRegion = AnimatedRegion;
+
+MapView.Geojson = Geojson;
 
 export default MapView;

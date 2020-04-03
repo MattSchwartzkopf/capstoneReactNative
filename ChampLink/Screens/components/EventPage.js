@@ -10,10 +10,8 @@ import { db } from '../config';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import * as firebase from 'firebase';
 
-
 let itemsRef = db.ref('/Events');
 const userName =firebase.auth().currentUser ? firebase.auth().currentUser.email : "Not signed in";
-
 
 export default class List extends React.Component {
   state = {
@@ -30,7 +28,6 @@ export default class List extends React.Component {
   }
 
   handleAdminCheck = () => {
-
     let userRef = db.ref('/UserPermission');
 
     userRef.on('value', snapshot => {
@@ -38,29 +35,13 @@ export default class List extends React.Component {
       let users = Object.values(data);
       this.setState({ users });
     })
-
-    var isAdmin = false;
-    {this.state.users.map((item, index) => {
-      if(item.name == userName){
-        Alert.alert("Current user is an admin therefore you can add user")
-        isAdmin = true;
-      }
-    })}
-
-      if(isAdmin == true){
         return(
           <TouchableOpacity
           onPress={() => this.props.navigation.navigate('AddItem')}>
             <Text style={styles.createEventButton}>Create an Event</Text>
         </TouchableOpacity>
         )
-      }
-    return(
-      <View>
-      <Text style={styles.createEventButton}>Can't create event. Not an admin</Text>
-      <Text style={styles.createEventButton}>{userName}</Text>
-      </View>
-    )
+
   };
 
   displayUser = () => {

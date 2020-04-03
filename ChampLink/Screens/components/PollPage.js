@@ -13,7 +13,9 @@ import * as firebase from 'firebase';
 
 
 let itemsRef = db.ref('/Polls');
+let userRef = db.ref('/UserPermission');
 const userName =firebase.auth().currentUser ? firebase.auth().currentUser.email : "Not signed in";
+
 export default class List extends React.Component {
   state = {
     items: [],
@@ -26,21 +28,19 @@ export default class List extends React.Component {
       let items = Object.values(data);
       this.setState({ items });
     });
-  }
-
-  handleAdminCheck = () => {
-    let userRef = db.ref('/UserPermission');
 
     userRef.on('value', snapshot => {
       let data = snapshot.val();
       let users = Object.values(data);
       this.setState({ users });
     })
+  }
 
+  handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.users.map((item, index) => {
       if(item.name == userName){
-        Alert.alert("Current user is an admin therefore you can add user")
+        Alert.alert("Current user is an admin therefore you can add user");
         isAdmin = true;
       }
     })}

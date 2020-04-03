@@ -11,8 +11,10 @@ import {
   TextInput,
   Alert
 } from 'react-native';
-
+import firebase from 'firebase';
 import { db } from '../config';
+
+
 
 export default class AddItem extends Component {
   state = {
@@ -20,13 +22,25 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-addItem(name, desc, date, url) {
-  db.ref('/Events').push({
+addItem(name, desc, date, url, key) {
+  var myRef = firebase.database().ref('/Events').push();
+  
+  var key2 = myRef.key;
+  myRef.child(key2).update({
     name: name,
     desc: desc,
     date: date,
-    url: url
+    url: url,
+    key: key2,
   });
+
+  myRef.update({
+    name: name,
+    desc: desc,
+    date: date,
+    url: url,
+    key: key2,
+  })
 };
 
 // CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
@@ -53,6 +67,7 @@ addItem(name, desc, date, url) {
       url: e.nativeEvent.text
     });
   };
+
 // ^^^^ Cleanup later
 
   handleSubmit = () => {
