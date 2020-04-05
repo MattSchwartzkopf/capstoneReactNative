@@ -12,11 +12,16 @@ class ItemComponent extends React.Component {
     items: PropTypes.array.isRequired,
   };
 
+  printData(data) {
+    console.log(this.props.items);
+  }
+
   render() {
     return (
       /* This is where the view of each is configured */
       <View style={styles.itemsList}>
         {this.props.items.map((item, index) => {
+          {this.printData(item.name)}
           return (
             // Each event is spaced individually here
             <TouchableOpacity onPress={() => this.props.navigation.navigate("EventPageDetail", {stuff: [item.name, item.date, item.desc, item.url]})}>

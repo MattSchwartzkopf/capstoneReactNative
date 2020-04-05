@@ -26,14 +26,15 @@ addItem(name, desc, date, url, key) {
   var myRef = firebase.database().ref('/Events').push();
   
   var key2 = myRef.key;
-  myRef.child(key2).update({
+
+  // I believe this is useless but currently too scared and busy to delete and worry about implications
+  myRef.update({
     name: name,
     desc: desc,
     date: date,
     url: url,
     key: key2,
-  });
-
+  })
 };
 
 // CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)

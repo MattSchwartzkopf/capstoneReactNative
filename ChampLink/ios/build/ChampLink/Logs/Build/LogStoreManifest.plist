@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>198C56F3-ECEA-489E-9C63-809104A0DBA1</key>
+		<key>50EA6ACF-5AC1-4AA8-8DD9-6C244493EEEE</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>198C56F3-ECEA-489E-9C63-809104A0DBA1.xcactivitylog</string>
+			<string>50EA6ACF-5AC1-4AA8-8DD9-6C244493EEEE.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,13 @@
 			<key>signature</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>607614733.79788399</real>
+			<real>607822130.89798605</real>
 			<key>timeStoppedRecording</key>
-			<real>607614736.17307901</real>
+			<real>607822305.984761</real>
 			<key>title</key>
 			<string>Building workspace ChampLink with scheme ChampLink and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>198C56F3-ECEA-489E-9C63-809104A0DBA1</string>
+			<string>50EA6ACF-5AC1-4AA8-8DD9-6C244493EEEE</string>
 		</dict>
 	</dict>
 </dict>
