@@ -18,6 +18,7 @@ import DebugInstructions from './components/DebugInstructions';
 import ReloadInstructions from './components/ReloadInstructions';
 import LoginPage from './components/LoginPage';
 import ManageUserPage from './components/ManageUserPage';
+import MyMapPage from './components/MyMapPage';
 import HomeScreen from './components/HomeScreen';
 import PollPage from './components/PollPage';
 import PollPageDetail from './components/PollPageDetail';
@@ -34,4 +35,4 @@ import CreateRoom from './components/CreateRoom';
 import MyChat from './components/MyChat';
 import ItemComponentManageUser from './components/ItemComponentManageUser';
 
-export {Header,ItemComponentManageUser,ManageUserPage, AddPerson,CreateRoom,DisplayPollsForAnEvent,ItemComponentPollsForEvent, AddItemPolls, AddPollEvent,AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};
+export {Header,ItemComponentManageUser,ManageUserPage, MyMapPage, AddPerson,CreateRoom,DisplayPollsForAnEvent,ItemComponentPollsForEvent, AddItemPolls, AddPollEvent,AddItem, ItemComponent, ItemComponentPolls, MyChat, HomeScreen, LoginPage, EventPage, PollPage,PollPageDetail, EventPageDetail, LearnMoreLinks, Colors, DebugInstructions, ReloadInstructions};

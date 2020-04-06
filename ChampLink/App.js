@@ -16,6 +16,7 @@ import {
   LoginPage,
   ItemComponentManageUser,
   ManageUserPage,
+  MyMapPage,
   HomeScreen,
   MyChat,
   EventPageDetail,
@@ -63,6 +64,9 @@ const AppNavigator = createStackNavigator({
   },
   ManageUserPage: {
     screen: ManageUserPage
+  },
+  MyMapPage: {
+    screen:MyMapPage
   },
   MyChat: {
     screen: MyChat
