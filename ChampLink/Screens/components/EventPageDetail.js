@@ -10,81 +10,17 @@
 
 'use strict';
 import Colors from './Colors';
-import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, Linking, Button} from 'react-native';
+import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, Linking} from 'react-native';
 import React from 'react';
-import firebase from 'firebase';
 
 function Separator(){
   return <View style={styles.separator} />;
 }
 
 class EventPageDetail extends React.Component {
-
   constructor(props) {
     super(props);
-    this.items = this.props.navigation.state.params.stuff; 
-    this.state = {
-      yes: this.items[4],
-      maybe: this.items[5],
-      no: this.items[6],
-    }}
-
-
-    updateYesRSVP = () => {
-      var myRef = firebase.database().ref('/Events');
-      this.state.yes++;
-
-      console.log("YESSSSSSSS: " + this.items[4]);
-
-      myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
-        key: this.items[7],
-        yes: this.state.yes,
-        maybe: this.state.maybe,
-        no: this.state.no,
-      });
-      this.setState({yes: this.state.yes});
-    }
-
-    updateMaybeRSVP = () => {
-      var myRef = firebase.database().ref('/Events');
-      this.state.maybe++;
-
-      console.log("MAYBEEEEEEEE: " + this.items[6]);
-
-      myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
-        key: this.items[7],
-        yes: this.state.yes,
-        maybe: this.state.maybe,
-        no: this.state.no,
-      });
-    }
-
-    updateNoRSVP = () => {
-      var myRef = firebase.database().ref('/Events');
-      this.state.no++;
-
-      console.log("NOOOOOOOOO: " + this.items[4]);
-
-      myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
-        key: this.items[7],
-        yes: this.state.yes,
-        maybe: this.state.maybe,
-        no: this.state.no,
-      });
-    }
-
+    this.items = this.props.navigation.state.params.stuff; }
 
   render() {
     return (
@@ -130,15 +66,6 @@ class EventPageDetail extends React.Component {
                 <Text style = {styles.text}>Display Polls for This event</Text>
               </View>
             </TouchableOpacity>
-
-            <Separator/>
-              <View> 
-                <Text style={styles.text}>Attending?</Text>
-                <Button title="Yes" onPress={this.updateYesRSVP}></Button>
-                <Button title="Maybe" onPress={this.updateMaybeRSVP}></Button>
-                <Button title="No" onPress={this.updateNoRSVP}></Button>
-              </View>
-
           </ScrollView>
         </SafeAreaView>
       </View>
