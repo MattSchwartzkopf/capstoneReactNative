@@ -91,13 +91,6 @@ export default class HomeScreen extends React.Component {
           <Text style={styles.loginText}>Manage Users!</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.loginScreenButton}
-          onPress={() => this.props.navigation.navigate('MyMapPage')}
-          underlayColor='#fff'>
-          <Text style={styles.loginText}>Temp Map Button</Text>
-        </TouchableOpacity>
-
       </View>
     )
   }

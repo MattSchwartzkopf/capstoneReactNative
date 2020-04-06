@@ -33,6 +33,9 @@ addItem(name, desc, date, url, key) {
     date: date,
     url: url,
     key: key2,
+    yes: 0,
+    maybe: 0,
+    no: 0,
   })
 };
 
