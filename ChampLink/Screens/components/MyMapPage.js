@@ -14,94 +14,20 @@ import {
 } from 'react-native';
 import firebase from 'firebase';
 import { db } from '../config';
+import MapView from "react-native-maps";
 
-export default class AddItem extends Component {
-  state = {
-    title: '',
-    desc: ''
-  };
-
-addItem(name, question, date, answer1, answer2, key) {
-  var myRef = firebase.database().ref('/Polls').push();
-  var key2 = myRef.key;
-
-  // I believe this is useless but currently too scared and busy to delete and worry about implications
-  myRef.update({
-    answer1: answer1,
-    answer1Count: 0,
-    answer2: answer2,
-    answer2Count: 0,
-    date: date,
-    name: name,
-    question: question,
-    key: key2,
-  })
-};
-
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
-  handleChangeName = e => {
-    this.setState({
-      name: e.nativeEvent.text
-    });
-  };
-
-  handleQuestion = e => {
-    this.setState({
-      question: e.nativeEvent.text
-    });
-  };
-
-  handleChangeDate = e => {
-    this.setState({
-      date: e.nativeEvent.text
-    });
-  };
-
-  handleAnswer1 = e => {
-    this.setState({
-      answer1: e.nativeEvent.text
-    });
-  };
-
-  handleAnswer2 = e => {
-    this.setState({
-      answer2: e.nativeEvent.text
-    });
-  };
-// ^^^^ Cleanup later
-
-  handleSubmit = () => {
-    this.addItem(this.state.name, this.state.question, this.state.date, this.state.answer1, this.state.answer2);
-    Alert.alert('Event saved successfully');
-  };
+export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.main}>
-
-        <Text style={styles.title}>Author's Name</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeName} />
-
-        <Text style={styles.title}>Question</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleQuestion} />
-
-        <Text style={styles.title}>Date Created</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleChangeDate} />
-
-        <Text style={styles.title}>Answer 1</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleAnswer1} />
-
-        <Text style={styles.title}>Answer 2</Text>
-        <TextInput style={styles.itemInput} onChange={this.handleAnswer2} />
-
-        <TouchableHighlight
-          style={styles.button}
-          underlayColor="white"
-          onPress={this.handleSubmit}
-        >
-          <Text style={styles.buttonText}>Add</Text>
-        </TouchableHighlight>
-      </View>
+      <MapView
+      initialRegion={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+    />
     );
   }
 }
