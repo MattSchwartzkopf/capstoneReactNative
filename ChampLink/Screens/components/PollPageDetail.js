@@ -12,6 +12,7 @@
 import Colors from './Colors';
 import {Image, Text, StyleSheet, View, TouchableOpacity, SafeAreaView, ScrollView, TouchableHighlight} from 'react-native';
 import React from 'react';
+import firebase from 'firebase';
 
 function Separator(){
   return <View style={styles.separator} />;
@@ -23,19 +24,46 @@ class EventPageDetail extends React.Component {
     super(props);
     this.items = this.props.navigation.state.params.stuff; 
     this.state = {
-      answer1Count: 0,
-      answer2Count: 0,
+      answer1Count: this.items[5],
+      answer2Count: this.items[6],
     }
   }
 
     handleAnswer1 = () => {
-      this.setState({answer1Count: this.state.answer1Count + 1});
+      var myRef = firebase.database().ref('/Polls');
+      this.state.answer1Count++;
+
+      myRef.child(this.items[7]).update({
+        answer1: this.items[3],
+        answer1Count: this.state.answer1Count,
+        answer2: this.items[4],
+        answer2Count: this.state.answer2Count,
+        date: this.items[2],
+        name: this.items[1],
+        question: this.items[0],
+        key: this.items[7],
+      });
+
+      this.setState({answer1Count: this.state.answer1Count});
     }
 
     handleAnswer2 = () => {
-      this.setState({answer2Count: this.state.answer2Count + 1});
+      var myRef = firebase.database().ref('/Polls');
+      this.state.answer2Count++;
+
+      myRef.child(this.items[7]).update({
+        answer1: this.items[3],
+        answer1Count: this.state.answer1Count,
+        answer2: this.items[4],
+        answer2Count: this.state.answer2Count,
+        date: this.items[2],
+        name: this.items[1],
+        question: this.items[0],
+        key: this.items[7],
+      });
+      this.setState({answer2Count: this.state.answer2Count});
     }
-    
+
   render() {
     return (
       <View>

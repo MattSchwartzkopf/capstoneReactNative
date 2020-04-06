@@ -24,7 +24,6 @@ export default class AddItem extends Component {
 
 addItem(name, desc, date, url, key) {
   var myRef = firebase.database().ref('/Events').push();
-  
   var key2 = myRef.key;
 
   // I believe this is useless but currently too scared and busy to delete and worry about implications

@@ -19,7 +19,7 @@ class ItemComponent extends React.Component {
         {this.props.items.map((item, index) => {
           return (
             // Each event is spaced individually here
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("PollPageDetail", {stuff: [item.question, item.name, item.date, item.answer1, item.answer2]})}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("PollPageDetail", {stuff: [item.question, item.name, item.date, item.answer1, item.answer2, item.answer1Count, item.answer2Count, item.key]})}>
               <View key={index} style={styles.eventSpacing}>
               <Text style={styles.eventBoxName}>{item.question}</Text>
               <Image  style={styles.imageSize} source={require('./event.png')}/>

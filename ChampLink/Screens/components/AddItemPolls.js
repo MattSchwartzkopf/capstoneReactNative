@@ -12,7 +12,7 @@ import {
   Alert,
   ScrollView
 } from 'react-native';
-
+import firebase from 'firebase';
 import { db } from '../config';
 
 export default class AddItem extends Component {
@@ -21,14 +21,21 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-addItem(name, question, date, answer1, answer2) {
-  db.ref('/Polls').push({
+addItem(name, question, date, answer1, answer2, key) {
+  var myRef = firebase.database().ref('/Polls').push();
+  var key2 = myRef.key;
+
+  // I believe this is useless but currently too scared and busy to delete and worry about implications
+  myRef.update({
+    answer1: answer1,
+    answer1Count: 0,
+    answer2: answer2,
+    answer2Count: 0,
+    date: date,
     name: name,
     question: question,
-    date: date,
-    answer1: answer1,
-    answer2: answer2,
-  });
+    key: key2,
+  })
 };
 
 // CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
