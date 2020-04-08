@@ -1,14 +1,13 @@
-/**
- * @format
- */
+import expect from 'expect.js';
+import React, { Component } from 'react';
+import PollPageDetail from './components/PollPageDetail.js';
 
-import 'react-native';
-import React from 'react';
-import App from '../App';
-
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
-
-it('renders correctly', () => {
-  renderer.create(<App />);
+class Testing1 extends Component {
+  
+  describe('./Screens/components/PollPageDetail', () => {
+    it('works', () => {
+      
+        expect(2).to.eql(2);
+    });
 });
+}

@@ -28,20 +28,28 @@ export default class List extends React.Component {
   }
 
   handleAdminCheck = () => {
-    let userRef = db.ref('/UserPermission');
+    var isAdmin = false;
+    {this.state.users.map((item, index) => {
+      if(item.name == userName){
+        Alert.alert("Current user is an admin therefore you can add user");
+        isAdmin = true;
+      }
+    })}
 
-    userRef.on('value', snapshot => {
-      let data = snapshot.val();
-      let users = Object.values(data);
-      this.setState({ users });
-    })
+    if(isAdmin == true){
         return(
           <TouchableOpacity
           onPress={() => this.props.navigation.navigate('AddItem')}>
-            <Text style={styles.createEventButton}>Create an Event</Text>
+            <Text style={styles.createEventButton}>Create a Poll</Text>
         </TouchableOpacity>
         )
-
+      }
+    return(
+      <View>
+      <Text style={styles.createEventButton}>Can't create event. Not an admin</Text>
+      <Text style={styles.createEventButton}>{userName}</Text>
+      </View>
+    )
   };
 
   displayUser = () => {

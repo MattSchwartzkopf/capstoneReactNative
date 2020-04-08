@@ -37,15 +37,28 @@ export default class List extends React.Component {
   }
 
   handleAdminCheck = () => {
+    var isAdmin = false;
+    {this.state.users.map((item, index) => {
+      if(item.name == userName){
+        Alert.alert("Current user is an admin therefore you can add user");
+        isAdmin = true;
+      }
+    })}
 
-
+    if(isAdmin == true){
         return(
           <TouchableOpacity
           onPress={() => this.props.navigation.navigate('AddItemPolls')}>
             <Text style={styles.createEventButton}>Create a Poll</Text>
         </TouchableOpacity>
         )
-
+      }
+    return(
+      <View>
+      <Text style={styles.createEventButton}>Can't create event. Not an admin</Text>
+      <Text style={styles.createEventButton}>{userName}</Text>
+      </View>
+    )
   };
 
 

@@ -83,13 +83,13 @@ export default class HomeScreen extends React.Component {
           <Text style={styles.loginText}>Chat!</Text>
         </TouchableOpacity>
 
-
         <TouchableOpacity
           style={styles.loginScreenButton}
           onPress={() => this.props.navigation.navigate('ManageUserPage')}
           underlayColor='#fff'>
           <Text style={styles.loginText}>Manage Users!</Text>
         </TouchableOpacity>
+
 
       </View>
     )
