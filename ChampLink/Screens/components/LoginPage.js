@@ -163,16 +163,22 @@ class LoginPage extends React.Component {
       var credential = error.credential;
       // ...
     });
-    Alert.alert("oh")
+    Alert.alert("oh");
   }
 
   // To redirect user
   signInUser = () =>  {
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(function() {
-      Alert.alert("Signed In!")
-    }).catch(function(error) {
-      Alert.alert(error.message)
+    if(this.state.email != null) {
+      firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(function() {
+      Alert.alert("Signed In!");
+      }
+    ).catch(function(error) {
+      Alert.alert(error.message);
     });
+    }
+    else if(this.state.email == null) {
+      Alert.alert("Email not found");
+    }
   }
 
   signOutUser() {
@@ -223,10 +229,15 @@ class LoginPage extends React.Component {
   };
 
   createUser = () => {
-    firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-    .then(function() {
-      Alert.alert(firebase.auth().tenantId)
-    });
+    if(this.state.email != null && this.state.password != null) {
+      firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password);
+      Alert.alert("Account Created");
+    }
+    else if(this.state.email == null || this.state.password == null) {
+      Alert.alert("Failed creating account. Check email and password.");
+    }
+    else
+      Alert.alert(error.message);
   }
 
   _signInAsync = async () => {

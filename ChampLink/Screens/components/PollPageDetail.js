@@ -29,6 +29,14 @@ class EventPageDetail extends React.Component {
     }
   }
 
+    getAnswer1Count = () => {
+      return this.state.answer1Count;
+    }
+
+    getAnswer2Count = () => {
+      return this.state.answer2Count;
+    }
+
     handleAnswer1 = () => {
       var myRef = firebase.database().ref('/Polls');
       this.state.answer1Count++;

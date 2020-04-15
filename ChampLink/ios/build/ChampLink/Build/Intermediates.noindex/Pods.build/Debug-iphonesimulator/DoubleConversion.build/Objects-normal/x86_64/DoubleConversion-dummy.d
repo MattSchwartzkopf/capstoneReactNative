@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/matthewschwartzkopf/Downloads/working/ChampLink/ios/Pods/Target\ Support\ Files/DoubleConversion/DoubleConversion-dummy.m \
-  /Users/matthewschwartzkopf/Downloads/working/ChampLink/ios/Pods/Target\ Support\ Files/DoubleConversion/DoubleConversion-prefix.pch
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/DoubleConversion/DoubleConversion-dummy.m \
+  /Users/matthewschwartzkopf/Documents/GitHub/capstoneReactNative/ChampLink/ios/Pods/Target\ Support\ Files/DoubleConversion/DoubleConversion-prefix.pch
