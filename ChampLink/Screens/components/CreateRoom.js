@@ -12,7 +12,7 @@ export default class CreateRoom extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired
   };
-
+//Create token and connect user to subscriberoom
   componentDidMount() {
     const tokenProvider = new TokenProvider({
       url: CHATKIT_TOKEN_PROVIDER_ENDPOINT,

@@ -21,6 +21,8 @@ export default class List extends React.Component {
     items: []
   };
 
+  //Pull value from fire base and set into data and items
+  
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();

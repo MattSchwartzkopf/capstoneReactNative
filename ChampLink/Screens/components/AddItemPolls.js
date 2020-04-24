@@ -25,7 +25,6 @@ addItem(name, question, date, answer1, answer2, key) {
   var myRef = firebase.database().ref('/Polls').push();
   var key2 = myRef.key;
 
-  // I believe this is useless but currently too scared and busy to delete and worry about implications
   myRef.update({
     answer1: answer1,
     answer1Count: 0,
@@ -38,7 +37,7 @@ addItem(name, question, date, answer1, answer2, key) {
   })
 };
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+//Functions to handle update data
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -68,8 +67,8 @@ addItem(name, question, date, answer1, answer2, key) {
       answer2: e.nativeEvent.text
     });
   };
-// ^^^^ Cleanup later
 
+//Handle user input
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.question, this.state.date, this.state.answer1, this.state.answer2);
     Alert.alert('Event saved successfully');

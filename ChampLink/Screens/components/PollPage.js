@@ -21,7 +21,7 @@ export default class List extends React.Component {
     items: [],
     users: [],
   };
-
+//Pull data from firebase
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();
@@ -35,7 +35,7 @@ export default class List extends React.Component {
       this.setState({ users });
     })
   }
-
+//Check if current user is an admin
   handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.users.map((item, index) => {
@@ -61,7 +61,7 @@ export default class List extends React.Component {
     )
   };
 
-
+//Display poll information.
   displayUser = () => {
     return(
       <ScrollView>
