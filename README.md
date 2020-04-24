@@ -1,6 +1,6 @@
 # capstoneReactNative
  
-# Setup & Run on MacOS:
+# Setup & Run on MacOS: Must have XCode installed
 
 ## Note: This requires two Terminal Windows to run
 
