@@ -20,7 +20,6 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-  //Push data into database
 addItem(name, permission) {
   db.ref('/UserPermission').push({
     name: name,
@@ -28,7 +27,7 @@ addItem(name, permission) {
   });
 };
 
-//Hanlde data change for local var
+// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -42,7 +41,8 @@ addItem(name, permission) {
   };
 
 
-//Handle data input
+// ^^^^ Cleanup later
+
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.permission);
     Alert.alert('Event saved successfully');

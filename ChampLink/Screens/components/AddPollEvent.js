@@ -21,7 +21,6 @@ export default class AddItem extends Component {
     desc: ''
   };
 
-//Push item to database
 addItem(name, question, date, answer1, answer2) {
   db.ref('/PollForEvent').push({
     name: name,
@@ -32,7 +31,7 @@ addItem(name, question, date, answer1, answer2) {
   });
 };
 
-// handle change data local var
+// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -62,8 +61,8 @@ addItem(name, question, date, answer1, answer2) {
       answer2: e.nativeEvent.text
     });
   };
+// ^^^^ Cleanup later
 
-  //Handle user input
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.question, this.state.date, this.state.answer1, this.state.answer2);
     Alert.alert('Poll For This Event is saved successfully');

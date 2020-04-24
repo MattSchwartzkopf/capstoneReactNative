@@ -24,7 +24,6 @@ export default class List extends React.Component {
     })
   }
 
-  //Check if currently logged in user is an admin or not
   handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.items.map((item, index) => {
@@ -50,7 +49,6 @@ export default class List extends React.Component {
     )
   };
 
-  //Display information 
   displayUser = () => {
     return(
       <View style={styles.container}>

@@ -28,7 +28,7 @@ class EventPageDetail extends React.Component {
       answer2Count: this.items[6],
     }
   }
-//Get data being passed in from another page
+
     getAnswer1Count = () => {
       return this.state.answer1Count;
     }
@@ -54,7 +54,7 @@ class EventPageDetail extends React.Component {
 
       this.setState({answer1Count: this.state.answer1Count});
     }
-//Grab data from firebase
+
     handleAnswer2 = () => {
       var myRef = firebase.database().ref('/Polls');
       this.state.answer2Count++;

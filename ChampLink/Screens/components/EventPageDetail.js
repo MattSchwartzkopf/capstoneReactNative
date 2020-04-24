@@ -19,7 +19,7 @@ function Separator(){
 }
 
 class EventPageDetail extends React.Component {
-//Set value received from pages that call this page and set them into local var.
+
   constructor(props) {
     super(props);
     this.items = this.props.navigation.state.params.stuff; 
@@ -29,18 +29,18 @@ class EventPageDetail extends React.Component {
       no: this.items[6],
     }}
 
-//Update Yes state
+
     updateYesRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.yes++;
 
-      console.log("Yes RSVP: " + this.items[4]);
+      console.log("YESSSSSSSS: " + this.items[4]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], 
-        desc: this.items[2], 
-        date: this.items[1], 
-        url: this.items[3], 
+        name: this.items[0], // good
+        desc: this.items[2], // good
+        date: this.items[1], // good
+        url: this.items[3], // good
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,
@@ -49,18 +49,17 @@ class EventPageDetail extends React.Component {
       this.setState({yes: this.state.yes});
     }
 
-  //Update Maybe state
     updateMaybeRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.maybe++;
 
-      console.log("Mayve RSVP: " + this.items[6]);
+      console.log("MAYBEEEEEEEE: " + this.items[6]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], 
-        desc: this.items[2], 
-        date: this.items[1], 
-        url: this.items[3], 
+        name: this.items[0], // good
+        desc: this.items[2], // good
+        date: this.items[1], // good
+        url: this.items[3], // good
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,
@@ -68,18 +67,17 @@ class EventPageDetail extends React.Component {
       });
     }
 
-    //Update No state
     updateNoRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.no++;
 
-      console.log("No RSVP: " + this.items[4]);
+      console.log("NOOOOOOOOO: " + this.items[4]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], 
-        desc: this.items[2], 
-        date: this.items[1], 
-        url: this.items[3], 
+        name: this.items[0], // good
+        desc: this.items[2], // good
+        date: this.items[1], // good
+        url: this.items[3], // good
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,

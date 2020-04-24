@@ -8,7 +8,6 @@
  * @format
  */
 
- //This is just instruction we got when we used initially created the app
 import type {Node} from 'react';
 import {Platform, StyleSheet, Text} from 'react-native';
 import React from 'react';
