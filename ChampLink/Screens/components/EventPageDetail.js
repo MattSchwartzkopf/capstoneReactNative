@@ -29,18 +29,18 @@ class EventPageDetail extends React.Component {
       no: this.items[6],
     }}
 
-
+//Update RSVP : Yes to Firebase
     updateYesRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.yes++;
 
-      console.log("YESSSSSSSS: " + this.items[4]);
+      console.log("Yes RSVP: " + this.items[4]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
+        name: this.items[0], 
+        desc: this.items[2], 
+        date: this.items[1], 
+        url: this.items[3], 
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,
@@ -49,17 +49,18 @@ class EventPageDetail extends React.Component {
       this.setState({yes: this.state.yes});
     }
 
+    //Update RSVP : Maybe to Firebase
     updateMaybeRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.maybe++;
 
-      console.log("MAYBEEEEEEEE: " + this.items[6]);
+      console.log("Maybe RSVP: " + this.items[6]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
+        name: this.items[0], 
+        desc: this.items[2], 
+        date: this.items[1], 
+        url: this.items[3], 
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,
@@ -67,17 +68,18 @@ class EventPageDetail extends React.Component {
       });
     }
 
+    //Update RSVP : No to Firebase
     updateNoRSVP = () => {
       var myRef = firebase.database().ref('/Events');
       this.state.no++;
 
-      console.log("NOOOOOOOOO: " + this.items[4]);
+      console.log("No RSVP: " + this.items[4]);
 
       myRef.child(this.items[7]).update({
-        name: this.items[0], // good
-        desc: this.items[2], // good
-        date: this.items[1], // good
-        url: this.items[3], // good
+        name: this.items[0], 
+        desc: this.items[2], 
+        date: this.items[1], 
+        url: this.items[3], 
         key: this.items[7],
         yes: this.state.yes,
         maybe: this.state.maybe,

@@ -20,6 +20,7 @@ export default class AddItem extends Component {
     desc: ''
   };
 
+  //Pull data from firebase userPermission
 addItem(name, permission) {
   db.ref('/UserPermission').push({
     name: name,
@@ -27,7 +28,7 @@ addItem(name, permission) {
   });
 };
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+//set data to name and permission.
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -40,9 +41,7 @@ addItem(name, permission) {
     });
   };
 
-
-// ^^^^ Cleanup later
-
+//Handle user's input
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.permission);
     Alert.alert('Event saved successfully');

@@ -28,7 +28,7 @@ class EventPageDetail extends React.Component {
       answer2Count: this.items[6],
     }
   }
-
+//Handle local vars state change.
     getAnswer1Count = () => {
       return this.state.answer1Count;
     }
@@ -37,6 +37,7 @@ class EventPageDetail extends React.Component {
       return this.state.answer2Count;
     }
 
+    //Handle answer polls.
     handleAnswer1 = () => {
       var myRef = firebase.database().ref('/Polls');
       this.state.answer1Count++;

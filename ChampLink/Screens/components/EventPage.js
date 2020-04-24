@@ -18,7 +18,7 @@ export default class List extends React.Component {
     items: [],
     users: [],
   };
-
+//Pull data from events and set it into data and items.
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();
@@ -27,6 +27,7 @@ export default class List extends React.Component {
     })
   }
 
+  //Check if currently logged in user is an admin. if so display create poll button if not so doesn't display.
   handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.users.map((item, index) => {
@@ -52,6 +53,7 @@ export default class List extends React.Component {
     )
   };
 
+  //Display events
   displayUser = () => {
     return(
       <ScrollView>

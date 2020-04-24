@@ -22,20 +22,21 @@ export default class List extends React.Component {
     users: [],
   };
 
+  //Pull data from Polls
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();
       let items = Object.values(data);
       this.setState({ items });
     });
-
+//Pull data from userpermission
     userRef.on('value', snapshot => {
       let data = snapshot.val();
       let users = Object.values(data);
       this.setState({ users });
     })
   }
-
+//Check if current user is an adamin. 
   handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.users.map((item, index) => {
@@ -61,7 +62,7 @@ export default class List extends React.Component {
     )
   };
 
-
+//Display polls
   displayUser = () => {
     return(
       <ScrollView>

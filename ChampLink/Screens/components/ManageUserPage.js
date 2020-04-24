@@ -16,6 +16,7 @@ export default class List extends React.Component {
     items: [],
   };
 
+  //Pull data from firebase/Userpermission
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();
@@ -24,6 +25,7 @@ export default class List extends React.Component {
     })
   }
 
+  //Check if admin
   handleAdminCheck = () => {
     var isAdmin = false;
     {this.state.items.map((item, index) => {
@@ -49,6 +51,7 @@ export default class List extends React.Component {
     )
   };
 
+  //Display users and their permissions
   displayUser = () => {
     return(
       <View style={styles.container}>

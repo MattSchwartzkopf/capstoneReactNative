@@ -20,7 +20,7 @@ export default class List extends React.Component {
   state = {
     items: []
   };
-
+//Pull data from pollforEvent and set it into data and items
   componentDidMount() {
     itemsRef.on('value', snapshot => {
       let data = snapshot.val();

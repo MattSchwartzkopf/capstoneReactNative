@@ -22,11 +22,12 @@ export default class AddItem extends Component {
     desc: ''
   };
 
+  //Pull information from firebase and put them into myRef and key2
 addItem(name, desc, date, url, key) {
   var myRef = firebase.database().ref('/Events').push();
   var key2 = myRef.key;
 
-  // I believe this is useless but currently too scared and busy to delete and worry about implications
+ //Update information on Firebase.
   myRef.update({
     name: name,
     desc: desc,
@@ -39,7 +40,7 @@ addItem(name, desc, date, url, key) {
   })
 };
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+//Handle changing information that user inputs
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -64,63 +65,12 @@ addItem(name, desc, date, url, key) {
     });
   };
 
-// ^^^^ Cleanup later
 
+//Handle user input and run each funtion to enter data into local vars
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
     Alert.alert('Event saved successfully');
   };
-
-  /*
-  // PUSHER and Firebase Info
-  componentDidMount() {
-    const tokenProvider = new TokenProvider({
-      url: CHATKIT_TOKEN_PROVIDER_ENDPOINT,
-    });
-
-    const chatManager = new ChatManager({
-      instanceLocator: CHATKIT_INSTANCE_LOCATOR,
-      userId: CHATKIT_USER_NAME,
-      tokenProvider: tokenProvider,
-    });
-
-  handleSubmit = () => {
-    var temp = db.ref('/Events').push({
-      name: this.state.name,
-      desc: this.state.desc,
-      date: this.state.date,
-      url: this.state.url,
-    });
-    //this.addItem(this.state.name, this.state.desc, this.state.date, this.state.url);
-    Alert.alert('succesfully saved key is: ' + temp.getKey());
-  };
-    chatManager
-      .connect()
-      .then(currentUser => {
-        this.currentUser = currentUser;
-        this.currentUser.subscribeToRoom({
-          roomId: this.navigate,
-          hooks: {
-            onMessage: this.onReceive,
-          },
-        });
-      })
-      .catch(err => {
-        console.log("FUCK");
-        console.log(err);
-      });
-  }
-  // Create a room
-  createRoom() {
-    const room = this.currentUser.createRoom({
-        id: this.state.name,
-        name: navigation.state.params.items,
-        private: false,
-    }) .catch(err => {
-      console.log(err);
-    });
-  }
-  */
 
   render() {
     return (

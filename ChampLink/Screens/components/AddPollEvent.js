@@ -21,6 +21,7 @@ export default class AddItem extends Component {
     desc: ''
   };
 
+  //Pull data from firebase poll for event.
 addItem(name, question, date, answer1, answer2) {
   db.ref('/PollForEvent').push({
     name: name,
@@ -31,7 +32,7 @@ addItem(name, question, date, answer1, answer2) {
   });
 };
 
-// CLEAN THIS UP BETTER VV - Duplicate Code (2 functions)
+//Handle data.
   handleChangeName = e => {
     this.setState({
       name: e.nativeEvent.text
@@ -61,8 +62,8 @@ addItem(name, question, date, answer1, answer2) {
       answer2: e.nativeEvent.text
     });
   };
-// ^^^^ Cleanup later
-
+  
+//Handle user's input
   handleSubmit = () => {
     this.addItem(this.state.name, this.state.question, this.state.date, this.state.answer1, this.state.answer2);
     Alert.alert('Poll For This Event is saved successfully');
